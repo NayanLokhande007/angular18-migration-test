@@ -1,0 +1,546 @@
+<div class="assin-var-page"><i class="bi bi-file-earmark-text-fill"></i> <b>Question Entry</b></div>
+
+<!-- checkout.component.html -->
+<div class="checkout-container">
+    <div class="container mb-4">
+        <div><b>Question Type</b></div>
+        <div class="firstCheckOut">
+            <!-- Group Que Checkbox -->
+            <label>
+                <input [disabled]="true" type="checkbox" (change)="toggleStepperQue()" [checked]="isStepperOpen"
+                    id="group">
+                Group
+            </label>
+
+            <!-- Singular Que Checkbox -->
+            <label>
+                <input type="checkbox" (change)="toggleSingularQue()" [checked]="isSingularQueOpen" id="single">
+                Single
+            </label>
+        </div>
+    </div>
+
+    <div class="container mb-4" *ngIf="isSingularQueOpen">
+        <div><b>Upload Type</b>
+            <div class="secoundCheckOut">
+                <!-- Additional checkboxes for Singular Que -->
+                <div class="singular-options">
+                    <label>
+                        <input [disabled]="true" type="checkbox" (change)="toggleImg()" [checked]="isImgOpen"
+                            id="image">
+                        Image
+                    </label>
+                    <label>
+                        <input [disabled]="true" type="checkbox" (change)="toggleVideo()" [checked]="isVideoOpen"
+                            id="pdf">
+                        PDF
+                    </label>
+                    <label>
+                        <input type="checkbox" (change)="toggleTextForm()" [checked]="isTextFormOpen" id="text">
+                        Text
+                    </label>
+                    <P class="singularNote" *ngIf="isImgOpen">Note : Image should be in jpg, png , jpeg format or size
+                        should be less than 100KB</P>
+                    <P class="singularNote" *ngIf="isVideoOpen">Note : PDF size should be less that 2MB</P>
+                    <P class="singularNote" *ngIf="isTextFormOpen">Note : Textual data should be in latex format</P>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- /////////////////////////// STEPPER FORM ///////////////////////// -->
+<div class="container mt-5" *ngIf="isStepperOpen">
+    <div class="stepper-wrapper">
+        <div *ngFor="let step of steps; let i = index" class="step" [class.active]="i <= currentStepIndex">
+            <!-- For i == 0, show 'Start' inside the circle -->
+            <div class="step-counter" *ngIf="i !== 0" id="step-counter">{{ i }}</div>
+            <div *ngIf="i == 0" class="step-counter"><i class="bi bi-arrow-right-circle-fill"></i></div>
+
+            <!-- Show step text only when i is not 0 -->
+            <div class="step-text" *ngIf="i !== 0" id="step-text">Question {{ i }}</div>
+            <div *ngIf="i == 0" class="step-text">Question Content</div>
+        </div>
+    </div>
+
+    <!-- Form Container -->
+    <div class="form-container mt-4 ">
+        <ng-container *ngIf="currentStepIndex == 0">
+            <form [formGroup]="QueGroup">
+                <div class="form-group">
+                    <label for="mathTopicsDropdown" class="form-label">Select Topic : <span
+                            style="color: red;">*</span></label>
+                    <select id="mathTopicsDropdown" class="form-select" formControlName="topicno" required
+                        (change)="onTopicChange($event)">
+                        <option value="" disabled selected>Select Topic</option>
+                        <option *ngFor="let topic of topics let i = index" [value]="topic.topicno">
+                            {{ topic.topicname1+' '+topic.topicname}}
+                        </option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="questionTypesDropdown" class="form-label">Select Question Type : <span
+                            style="color: red;">*</span></label>
+                    <select id="questionTypesDropdown" class="form-select" formControlName="quetype" required
+                        (change)="onQuestionTypeChange2()">
+                        <option value="" disabled selected>Select Question Type</option>
+                        <option *ngFor="let questionType of questionTypes" [value]="questionType">
+                            {{ questionType | titlecase }}
+                        </option>
+                    </select>
+                </div>
+                <div *ngIf="showSelectFile">
+                    <label for="fileUpload" class="form-label">Select Image : <span style="color: red;">*</span></label>
+                    <input class="form-control" type="file" id="fileUpload" (change)="onImageFileChange($event)"
+                        required>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="time" class="form-label">Time : <span style="color: red;">*</span></label>
+                            <input type="text" class="form-control" id="time" formControlName="time"
+                                placeholder="Enter a required time in seconds to solve the question" required />
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="dod" class="form-label">DOD : <span style="color: red;">*</span></label>
+                            <input type="text" class="form-control" id="dod" formControlName="dod"
+                                placeholder="Enter the DOD" required />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="questionContent" class="form-label">Question Content : <span
+                            style="color: red;">*</span></label>
+                    <textarea class="form-control" id="questionContent" formControlName="question" rows="11"
+                        required></textarea>
+                </div>
+            </form>
+        </ng-container>
+        <div class="scrollable-form" *ngIf="currentStepIndex !== 0">
+            <ng-container>
+                <form [formGroup]="SubQueGroup">
+                    <div class="form-group">
+                        <label for="question" class="form-label">Question {{ currentStepIndex }} : <span
+                                style="color: red;">*</span></label>
+                        <textarea class="form-control" id="questionContent" id="question" placeholder="Enter Question"
+                            rows="5" formControlName="question" required></textarea>
+                    </div>
+
+                    <div>
+                        <label for="solution" class="form-label">Solution : </label>
+                        <textarea class="form-control" id="solution" rows="7" placeholder="Enter the solution here"
+                            formControlName="solution"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="correctAnswer1" class="form-label">Correct Answer 1</label>
+                        <input type="text" class="form-control" id="correctAnswer1" formControlName="correctanswer1"
+                            placeholder="Enter Correct Answer 1">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="correctAnswer2" class="form-label">Correct Answer 2</label>
+                        <input type="text" class="form-control" id="correctAnswer2" formControlName="correctanswer2"
+                            placeholder="Enter Correct Answer 2">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="correctAnswer3" class="form-label">Correct Answer 3</label>
+                        <input type="text" class="form-control" id="correctAnswer3" formControlName="correctanswer3"
+                            placeholder="Enter Correct Answer 3">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="wrongAnswer1" class="form-label">Wrong Answer 1</label>
+                        <input type="text" class="form-control" id="wrongAnswer1" placeholder="Enter Wrong Answer 1"
+                            formControlName="wronganswer1">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="wrongAnswer2" class="form-label">Wrong Answer 2</label>
+                        <input type="text" class="form-control" id="wrongAnswer2" placeholder="Enter Wrong Answer 2"
+                            formControlName="wronganswer2">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="wrongAnswer3" class="form-label">Wrong Answer 3</label>
+                        <input type="text" class="form-control" id="wrongAnswer3" placeholder="Enter Wrong Answer 3"
+                            formControlName="wronganswer3">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="wrongAnswer4" class="form-label">Wrong Answer 4</label>
+                        <input type="text" class="form-control" id="wrongAnswer4" placeholder="Enter Wrong Answer 4"
+                            formControlName="wronganswer4">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="wrongAnswer5" class="form-label">Wrong Answer 5</label>
+                        <input type="text" class="form-control" id="wrongAnswer5" placeholder="Enter Wrong Answer 5"
+                            formControlName="wronganswer5">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="wrongAnswer6" class="form-label">Wrong Answer 6</label>
+                        <input type="text" class="form-control" id="wrongAnswer6" placeholder="Enter Wrong Answer 6"
+                            formControlName="wronganswer6">
+                    </div>
+                </form>
+            </ng-container>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-between mt-4">
+        <button class="btn btn-primary" (click)="prevStep()" [disabled]="currentStepIndex === 0"
+            id="previous">Previous</button>
+        <button *ngIf="currentStepIndex >= 6" class="btn btn-primary" (click)="submitQueGroup()"
+            id="submit">Submit</button>
+        <button class="btn btn-primary" (click)="nextStep()" [disabled]="currentStepIndex === steps.length - 1"
+            id="next">Next</button>
+    </div>
+
+</div>
+
+<!-- //////////////////////////////// IMAGE FORM //////////////////////////// -->
+<div class="container mt-5 scrollable-form" *ngIf="isImgOpen">
+    <form [formGroup]="QueEntryForm">
+        <div class="container">
+            <div>
+                <label for="mathTopicsDropdown" class="form-label">Select Topic : <span
+                        style="color: red;">*</span></label>
+                <select id="mathTopicsDropdown" class="form-select" formControlName="topicno" required
+                    (change)="onTopicChange($event)">
+                    <option value="" disabled selected>Select Topic</option>
+                    <option *ngFor="let topic of topics let i = index" [value]="topic.topicno">
+                        {{ topic.topicname1+' '+topic.topicname}}
+                    </option>
+                </select>
+            </div>
+            <div>
+                <label for="answerTypesDropdown" class="form-label">Select Answer Type : <span
+                        style="color: red;">*</span></label>
+                <select id="answerTypesDropdown" class="form-select" formControlName="answertype" required
+                    (change)="onAnswerTypeChange()">
+                    <!-- Placeholder option -->
+                    <option value="" disabled selected>Select Answer Type</option>
+
+                    <!-- Iterate over combinedArray2 for Answer Types -->
+                    <option *ngFor="let AnswerType of AnswerTypes let i = index" [value]="i+1">
+                        {{ AnswerType }}
+                    </option>
+                </select>
+            </div>
+            <div>
+                <!-- Question Type Dropdown -->
+                <label for="questionTypesDropdown" class="form-label">Select Question Type : <span
+                        style="color: red;">*</span></label>
+                <select id="questionTypesDropdown" class="form-select" formControlName="quetype" required
+                    (change)="onQuestionTypeChange()">
+                    <option value="" disabled selected>Select Question Type</option>
+                    <option *ngFor="let questionType of questionTypes" [value]="questionType">
+                        {{ questionType | titlecase }}
+                    </option>
+                </select>
+            </div>
+
+            <div *ngIf="showSelectFile">
+                <label for="question-type" class="form-label">Select {{selectedQuestionType}} : <span
+                        style="color: red;">*</span></label>
+                <input class="form-control" type="file" id="question-type" (change)="onFileChange($event)" required>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="time" class="form-label">Time : <span style="color: red;">*</span></label>
+                        <input type="text" class="form-control" id="time" formControlName="time"
+                            placeholder="Enter a required time in seconds to solve the question" required />
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="dod" class="form-label">DOD : <span style="color: red;">*</span></label>
+                        <input type="text" class="form-control" id="dod" formControlName="dod"
+                            placeholder="Enter the DOD" required />
+                    </div>
+                </div>
+            </div>
+            <div>
+                <label for="fileUpload" class="form-label">Select Image : <span style="color: red;">*</span></label>
+                <input class="form-control" type="file" id="fileUpload" (change)="onImageFileChange($event)" required>
+            </div>
+        </div>
+    </form>
+    <div class="text-end mt-5"> <!-- Add this div to align the button to the right -->
+        <button type="submit" class="btn btn-primary" (click)="submitImageQueEntry()" id="submit">Submit</button>
+    </div>
+</div>
+
+<!-- ///////////////////////////// PDF FORM ///////////////////////////// -->
+<div class="container mt-5 scrollable-form" *ngIf="isVideoOpen">
+    <form [formGroup]="QueEntryForm">
+        <div class="container">
+            <div>
+                <label for="mathTopicsDropdown" class="form-label">Select Topic : <span
+                        style="color: red;">*</span></label>
+                <select id="mathTopicsDropdown" class="form-select" formControlName="topicno" required
+                    (change)="onTopicChange($event)">
+                    <option value="" disabled selected>Select Topic</option>
+                    <option *ngFor="let topic of topics let i = index" [value]="topic.topicno">
+                        {{ topic.topicname1+' '+topic.topicname}}
+                    </option>
+                </select>
+            </div>
+            <div>
+                <label for="answerTypesDropdown" class="form-label">Select Answer Type : <span
+                        style="color: red;">*</span></label>
+                <select id="answerTypesDropdown" class="form-select" formControlName="answertype" required
+                    (change)="onAnswerTypeChange()">
+                    <!-- Placeholder option -->
+                    <option value="" disabled selected>Select Answer Type</option>
+
+                    <!-- Iterate over combinedArray2 for Answer Types -->
+                    <option *ngFor="let AnswerType of AnswerTypes let i = index" [value]="i+1">
+                        {{ AnswerType }}
+                    </option>
+                </select>
+            </div>
+            <div>
+                <!-- Question Type Dropdown -->
+                <label for="questionTypesDropdown" class="form-label">Select Question Type : <span
+                        style="color: red;">*</span></label>
+                <select id="questionTypesDropdown" class="form-select" formControlName="quetype" required
+                    (change)="onQuestionTypeChange()">
+                    <option value="" disabled selected>Select Question Type</option>
+                    <option *ngFor="let questionType of questionTypes" [value]="questionType">
+                        {{ questionType | titlecase }}
+                    </option>
+                </select>
+            </div>
+
+            <div *ngIf="showSelectFile">
+                <label for="question-type" class="form-label">Select {{selectedQuestionType}} : <span
+                        style="color: red;">*</span></label>
+                <input class="form-control" type="file" id="question-type" (change)="onFileChange($event)" required>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="time" class="form-label">Time : <span style="color: red;">*</span></label>
+                        <input type="text" class="form-control" id="time" formControlName="time"
+                            placeholder="Enter a required time in seconds to solve the question" required />
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="dod" class="form-label">DOD : <span style="color: red;">*</span></label>
+                        <input type="text" class="form-control" id="dod" formControlName="dod"
+                            placeholder="Enter the DOD" required />
+                    </div>
+                </div>
+            </div>
+            <div>
+                <label for="fileUpload" class="form-label">Select PDF : <span style="color: red;">*</span></label>
+                <input class="form-control" type="file" id="fileUpload" (change)="onPdfFileChange($event)" required>
+            </div>
+        </div>
+    </form>
+    <div class="text-end mt-5"> <!-- Add this div to align the button to the right -->
+        <button type="submit" class="btn btn-primary" (click)="submitPDFQueEntry()" id="submit">Submit</button>
+    </div>
+</div>
+
+<!-- ////////////////////////////// TEXT FORM ///////////////////////// -->
+<div class="container mt-5 scrollable-form" *ngIf="isTextFormOpen">
+    <form [formGroup]="QueEntryForm">
+        <div>
+            <label for="mathTopicsDropdown" class="form-label">Select Topic : <span style="color: red;">*</span></label>
+            <select id="mathTopicsDropdown" class="form-select" formControlName="topicno" required
+                (change)="onTopicChange($event)">
+                <option value="" disabled selected>Select Topic</option>
+                <option *ngFor="let topic of topics let i = index" [value]="topic.topicno">
+                    {{ topic.topicname1+' '+topic.topicname}}
+                </option>
+            </select>
+        </div>
+        <div>
+            <label for="answerTypesDropdown" class="form-label">Select Answer Type : <span
+                    style="color: red;">*</span></label>
+            <select id="answerTypesDropdown" class="form-select" formControlName="answertype" required
+                (change)="onAnswerTypeChange()">
+                <!-- Placeholder option -->
+                <option value="" disabled selected>Select Answer Type</option>
+                <!-- Iterate over combinedArray2 for Answer Types -->
+                <option *ngFor="let AnswerType of AnswerTypes let i = index" [value]="i+1">
+                    {{ AnswerType }}
+                </option>
+            </select>
+        </div>
+        <div>
+            <!-- Question Type Dropdown -->
+            <label for="questionTypesDropdown" class="form-label">Select Question Type : <span
+                    style="color: red;">*</span></label>
+            <select id="questionTypesDropdown" class="form-select" formControlName="quetype" required
+                (change)="onQuestionTypeChange()">
+                <option value="" disabled selected>Select Question Type</option>
+                <option *ngFor="let questionType of questionTypes" [value]="questionType">
+                    {{ questionType | titlecase }}
+                </option>
+            </select>
+        </div>
+
+        <div *ngIf="showSelectFile">
+            <label for="question-type" class="form-label">Select {{selectedQuestionType}} : <span
+                    style="color: red;">*</span></label>
+            <input class="form-control" type="file" id="question-type" (change)="onFileChange($event)">
+        </div>
+        <div class="row">
+            <div class="col-md-6" *ngIf="truefalseSelected==0">
+                <div class="form-group">
+                    <label for="time" class="form-label">Time : <span style="color: red;">*</span></label>
+                    <input type="text" class="form-control" id="time" formControlName="time"
+                        placeholder="Enter a required time in seconds to solve the question" required />
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group" *ngIf="truefalseSelected==0">
+                    <label for="dod" class="form-label">DOD : <span style="color: red;">*</span></label>
+                    <input type="text" class="form-control" id="dod" formControlName="dod" placeholder="Enter the DOD"
+                        required />
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="truefalseSelected==0">
+            <label for="question" class="form-label">Question : <span style="color: red;">*</span></label>
+            <textarea class="form-control" id="question" rows="5" placeholder="Enter the question here"
+                formControlName="question" required></textarea>
+        </div>
+        <div *ngIf="truefalseSelected==0">
+            <label for="solution" class="form-label">Solution : </label>
+            <textarea class="form-control" id="solution" rows="7" placeholder="Enter the solution here"
+                formControlName="solution"></textarea>
+        </div>
+        <div *ngIf="truefalseSelected==0">
+            <label for="correctAnswer" class="form-label">Correct Answer 1 : </label>
+            <textarea class="form-control" id="correctAnswer1" rows="1" placeholder="Enter the correct answer 1"
+                formControlName="correctanswer1"></textarea>
+        </div>
+        <div *ngIf="!showCorrect && truefalseSelected == 0">
+            <label for="correctAnswer" class="form-label">Correct Answer 2 : </label>
+            <textarea class="form-control" id="correctAnswer2" rows="1" placeholder="Enter the correct answer 2"
+                formControlName="correctanswer2"></textarea>
+        </div>
+        <div *ngIf="!showCorrect && truefalseSelected == 0">
+            <label for="correctAnswer" class="form-label">Correct Answer 3 : </label>
+            <textarea class="form-control" id="correctAnswer3" rows="1" placeholder="Enter the correct answer 3"
+                formControlName="correctanswer3"></textarea>
+        </div>
+        <div *ngIf="truefalseSelected==0">
+            <label for="wrongAnswer1" class="form-label">Wrong Answer 1 : </label>
+            <textarea class="form-control" id="wrongAnswer1" rows="1" placeholder="Enter a wrong answer 1"
+                formControlName="wronganswer1"></textarea>
+        </div>
+        <div *ngIf="truefalseSelected==0">
+            <label for="wrongAnswer2" class="form-label">Wrong Answer 2 : </label>
+            <textarea class="form-control" id="wrongAnswer2" rows="1" placeholder="Enter a wrong answer 2"
+                formControlName="wronganswer2"></textarea>
+        </div>
+        <div *ngIf="truefalseSelected==0">
+            <label for="wrongAnswer3" class="form-label">Wrong Answer 3 : </label>
+            <textarea class="form-control" id="wrongAnswer3" rows="1" placeholder="Enter a wrong answer 3"
+                formControlName="wronganswer3"></textarea>
+        </div>
+        <div *ngIf="truefalseSelected==0">
+            <label for="wrongAnswer3" class="form-label">Wrong Answer 4 : </label>
+            <textarea class="form-control" id="wrongAnswer4" rows="1" placeholder="Enter a wrong answer 4"
+                formControlName="wronganswer4"></textarea>
+        </div>
+        <div *ngIf="truefalseSelected==0">
+            <label for="wrongAnswer3" class="form-label">Wrong Answer 5 : </label>
+            <textarea class="form-control" id="wrongAnswer5" rows="1" placeholder="Enter a wrong answer 5"
+                formControlName="wronganswer5"></textarea>
+        </div>
+        <div *ngIf="truefalseSelected==0">
+            <label for="wrongAnswer3" class="form-label">Wrong Answer 6 : </label>
+            <textarea class="form-control" id="wrongAnswer6" rows="1" placeholder="Enter a wrong answer 6"
+                formControlName="wronganswer6"></textarea>
+        </div>
+
+        <div *ngIf="truefalseSelected==1">
+            <label for="fileUpload" class="form-label">Select Excel File : <span style="color: red;">*</span></label>
+            <input class="form-control" type="file" id="fileUpload" (change)="onExcelFileChange($event)" required>
+        </div>
+
+
+        <!-- Button to toggle Excel preview -->
+        <button style="align-items: center;" data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-primary mt-2" (click)="toggleExcelView()" *ngIf="excelData.length > 0">
+            {{ showExcelData ? 'View Excel' : 'View Excel' }}
+        </button>
+
+        <!-- <button data-bs-toggle="modal" data-bs-target="#myModal" (click)="toggleExcelView()">View Excel</button> -->
+
+        <!-- Responsive Table Container -->
+        
+
+    </form>
+    <div class="text-end mt-5"> <!-- Add this div to align the button to the right -->
+        <button type="submit" class="btn btn-primary" (click)="submitTextQueEntry()" id="submit">Submit</button>
+    </div>
+</div>
+
+
+<div class="modal modal-dialog-scrollable" id="myModal" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-scrollable custom-width custom-height">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">True or False Excelsheet</h4>
+                <button type="button" class="btn-close" #closebuttton data-bs-dismiss="modal"
+                    ></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="container mt-5">
+                    
+                    <div *ngIf="showExcelData" class="table-responsive mt-3" style="max-height: 400px; overflow-y: auto;">
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th *ngFor="let colIndex of displayedColumnIndexes">{{ excelData[0][colIndex] }}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let row of excelData.slice(1)">
+                                    <td *ngFor="let colIndex of displayedColumnIndexes">
+                                        {{ row[colIndex] || '-' }} <!-- Handles missing values -->
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+                <!-- Modal footer -->
+                <div class="text-end">
+                    <button type="button" class="btn btn-danger" id="closeModal" (click)="closeModal()">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<app-loader *ngIf="loading"></app-loader>

@@ -1,0 +1,47 @@
+<!-- Navigation -->
+<!-- <div class="header">
+  <a class="logo">
+    <img src="assets/logo.png" alt="Logo" class="imglogo">COEPTECH Virtual Math Lab, Pune
+  </a>
+  <div class="header-right">
+    
+    <a class="nav-link" style="margin-top: 5px; color: #214565; font-weight: 600;">
+        Welcome, {{firstname}} {{lastname}}   <p class="card-like">{{userRole}}</p>  
+
+    </a>
+    
+    <a class="nav-link" (click)="gotoProfile()">
+      <img src="assets/profile.png" alt="Logo" class="profileLogo" id="profile">
+    </a>
+
+  </div>
+</div> -->
+
+<div class="header">
+  <a class="logo">
+    <img src="assets/logo.png" alt="Logo" class="imglogo">COEPTECH Virtual Math Lab, Pune
+  </a>
+  
+  <div class="header-right">
+    <a class="nav-link" style="margin-top: 5px; color: #214565; font-weight: 600;">
+      Welcome, {{firstname}} {{lastname}}  
+      <p class="card-like">{{userRole}}</p>  
+    </a>
+    
+    <!-- Profile Icon with Click Event -->
+    <a class="nav-link profile-container" (click)="toggleProfileMenu($event)">
+      <img src="assets/profile.png" alt="Profile" class="profileLogo" id="profile">
+    </a>
+
+    <!-- Popup Menu -->
+    <div class="profile-menu" *ngIf="isProfileMenuOpen">
+      <a (click)="gotoProfile()">
+        <i class="bi bi-person-circle"></i> Profile
+      </a>
+      <a (click)="logout()">
+        <i class="bi bi-box-arrow-right"></i> Logout
+      </a>
+    </div>
+  </div>
+</div>
+

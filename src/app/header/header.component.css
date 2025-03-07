@@ -1,0 +1,251 @@
+/* Style the header with a grey background and some padding */
+.header {
+  overflow: hidden;
+  background-color: white;
+  padding: 5px 10px;
+}
+
+/* Style the header links */
+.header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+  color: #224561;
+  margin: -10px;
+}
+
+/* Style the active/current link*/
+.header a.active {
+  background-color: dodgerblue;
+  color: white;
+}
+
+/* Float the link section to the right */
+.header-right {
+  height: 100%;
+  float: right;
+  justify-content: center;
+}
+
+.bi {
+  color: white;
+  background-color: #214565;
+  padding: 5px 8px;
+  border-radius: 30px;
+}
+
+.imglogo {
+  height: 60px;
+  margin-right: 15px;
+  margin-left: 10px;
+}
+
+.profileLogo {
+  height: 35px;
+}
+
+#user-name {
+  margin-top: 5px;
+  color: #214565;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.card-like {
+  display: inline-block; /* Ensures the size is like a button */
+  padding: 3px 10px; /* Adjust padding for button-like size */
+  font-size: 16px; /* Font size for text */
+  font-weight: 500; /* Optional: Bolden text */
+  color: #ffffff; /* Text color */
+  background-color: #214565; /* Card-like background color */
+  border: 1px solid #214565; /* Border to define card edges */
+  border-radius: 6px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for a card effect */
+  text-align: center; /* Center-align text */
+}
+
+
+/* For standard desktop resolution (1366px wide) */
+@media (min-width: 1367px) {
+  .imglogo {
+    height: 60px;
+  }
+
+  .header a.logo {
+    font-size: 25px;
+    font-weight: bold;
+  }
+
+  .profileLogo {
+    height: 35px;
+  }
+
+  #user-name {
+    font-size: 20px;
+    margin-top: 5px;
+  }
+}
+
+/* For standard desktop resolution (1366px wide) */
+@media (max-width: 1366px) {
+  .imglogo {
+    height: 60px;
+  }
+
+  .header a.logo {
+    font-size: 25px;
+    font-weight: bold;
+  }
+
+  .profileLogo {
+    height: 35px;
+  }
+
+  #user-name {
+    font-size: 20px;
+    margin-top: 5px;
+  }
+}
+
+/* For screens between 992px and 1199px */
+@media (max-width: 1199px) {
+  .imglogo {
+    height: 50px;
+  }
+
+  .header a.logo {
+    font-size: 22px;
+    font-weight: bold;
+  }
+
+  .profileLogo {
+    height: 30px;
+  }
+
+  #user-name {
+    font-size: 18px;
+    margin-top: 4px;
+  }
+}
+
+/* For tablets and small laptops (768px to 991px) */
+@media (max-width: 991px) {
+  .imglogo {
+    height: 40px;
+  }
+
+  .header a.logo {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .profileLogo {
+    height: 25px;
+  }
+
+  #user-name {
+    font-size: 16px;
+    margin-top: 3px;
+  }
+}
+
+/* For mobile devices (767px and below) */
+@media (max-width: 767px) {
+  .imglogo {
+    height: 30px;
+  }
+
+  .header a.logo {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .profileLogo {
+    height: 20px;
+  }
+
+  #user-name {
+    font-size: 14px;
+    margin-top: 2px;
+  }
+}
+
+/* For extra small devices (576px and below) */
+@media (max-width: 576px) {
+  .imglogo {
+    height: 30px;
+  }
+
+  .header a.logo {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .profileLogo {
+    height: 20px;
+  }
+
+  #user-name {
+    font-size: 14px;
+    margin-top: 2px;
+  }
+}
+
+
+
+
+
+.profile-container {
+  position: relative;
+  cursor: pointer;
+}
+
+.profileLogo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.profile-menu {
+  position: absolute;
+  top: 65px; /* Lower the menu for better visibility */
+  right: 0;
+  background: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  width: 140px;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0;
+  z-index: 10;
+}
+
+.profile-menu a {
+  padding: 12px;
+  text-decoration: none;
+  color: #214565;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.profile-menu a:hover {
+  background: #f0f0f0;
+}
+
+.profile-menu i {
+  font-size: 16px;
+}

@@ -1,0 +1,127 @@
+/* Custom column widths */
+.col-srno {
+    width: 5%;
+}
+
+.col-topic {
+    width: 10%;
+}
+
+.col-varNo {
+    width: 10%;
+}
+
+.col-excel-sheet-link {
+    width: 37%;
+}
+
+.col-source-code-link {
+    width: 38%;
+}
+
+/* Apply scroll styling only to table cells */
+tbody td {
+    max-height: 100px;
+    overflow-y: auto;
+}
+
+.col {
+    background-color: #214561;
+    color: white;
+    font-size: 14px;
+}
+
+td {
+    font-size: 14px;
+}
+
+.assin-var-page {
+    font-size: 18px;
+    margin: 10px;
+    color: #214561;
+}
+
+.bi {
+    margin-right: 10px;
+}
+
+#table-body {
+    background-color: #f8f9fa;
+}
+
+
+
+label {
+    font-size: 14px;
+    color: #214561;
+}
+#topicDropdown{
+    padding: 5px;
+    font-size: 18px;
+    color: #214561;
+    padding: 10px;
+}
+option{
+    font-size: 18px;
+    color: #214561;
+}
+.no-data{
+    font-size: 22px;
+    font-weight: 700;
+    color: red;
+    background-color: rgb(255, 182, 182);
+    margin-top: 50px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 15px;
+}
+
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+  
+  }
+  
+  .search-bar input[type="text"] {
+    border-radius: 0;
+    border-radius: 5px;
+    margin-right: 10px;
+    font-size: 12px;
+  }
+  
+  .search-bar .btn {
+    align-items: center;
+    border-radius: 0;
+    border-radius: 5px;
+    background-color: #214561;
+  }
+  
+  .bi-search {
+    margin-right: 0px;
+  }
+
+
+  .pagination {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .pagination button {
+    padding: 5px 10px;
+    border: 1px solid #214561;
+    background-color: #214561;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }

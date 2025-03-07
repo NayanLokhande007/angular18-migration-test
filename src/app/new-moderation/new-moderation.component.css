@@ -1,0 +1,298 @@
+/* Custom column widths */
+.col-srno {
+    width: 5%;
+  }
+  
+  .col-topic {
+    width: 10%;
+  }
+  
+  .col-subTopic {
+    width: 10%;
+  }
+  
+  .col-queType {
+    width: 14%;
+  }
+  .col-ansType{
+    width: 14%;
+  }
+  
+  .col-varNo {
+    width: 10%;
+  }
+  .col-dod{
+    width: 7%;
+  }
+  .col-contriId{
+    width: 10%;
+  }
+  .col-date{
+    width: 10%;
+  }
+  
+  .col-action {
+    width: 10%;
+    max-height: 100px;
+    /* Set a fixed height for the cells */
+    overflow-y: auto;
+    white-space: nowrap;
+    /* Prevent text from wrapping */
+  }
+  
+  /* Apply scroll styling only to table cells */
+  tbody td {
+    max-height: 100px;
+    overflow-y: auto;
+  }
+  
+  
+  .col {
+    background-color: #214561;
+    color: white;
+    font-size: 14px;
+  }
+  
+  td {
+    font-size: 14px;
+  }
+  
+  .assin-var-page {
+    font-size: 18px;
+    margin: 10px;
+    color: #214561;
+  }
+  
+  .bi {
+    margin-right: 10px;
+  }
+  
+  #table-body {
+    background-color: #f8f9fa;
+  }
+  
+  .btn {
+    margin: 10px;
+    padding: 3px 15px;
+  }
+  
+  .bi-eye-fill {
+    font-size: 25px;
+    color: #214561;
+  }
+  
+  .bi-trash-fill {
+    font-size: 25px;
+    color: #214561;
+  }
+  
+  #contributors{
+    border-top: 1px solid #214561;
+    padding: 20px;
+    margin-top: 20px;
+    /* background-color: #81c8ff; */
+  }
+  
+  
+  /* /////////////////////////// srarch bar /////////////////////////// */
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+  
+  }
+  
+  .search-bar input[type="text"] {
+    border-radius: 0;
+    border-radius: 5px;
+    margin-right: 10px;
+    font-size: 12px;
+  }
+  
+  .search-bar .btn {
+    align-items: center;
+    border-radius: 0;
+    border-radius: 5px;
+    background-color: #214561;
+  }
+  
+  .bi-search {
+    margin-right: 0px;
+  }
+  
+  
+  /* //////////////////////////////// pop-up form css ////////////////////////// */
+  /* Custom Modal Width */
+  .custom-width {
+    max-width: 90%;
+    /* Adjust the width as needed */
+  }
+  
+  /* Custom Modal Height */
+  .custom-height {
+    max-height: 100vh;
+    /* Adjust the height as needed */
+    overflow-y: auto;
+    /* Enable vertical scrolling if content overflows */
+  }
+  
+  .modal-title {
+    color: #214561;
+    font-size: 18px;
+  }
+  
+  .form-label {
+    color: #214561;
+    font-size: 18px;
+  }
+  
+  .form-select,
+  .form-control {
+    color: #214561;
+    font-size: 18px;
+  }
+  
+  /* .text-end{
+    border-top: 0.2px solid grey;
+    box-shadow: 0px 1px 5px grey inset;
+  } */
+  .btn {
+    font-size: 14px;
+  }
+
+  .popup {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .close-btn {
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+
+  /* gkkfgf */
+ /* Overlay styles */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Popup styles */
+.popup {
+  background: #ffffff;
+  width: 500px;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* Close button styles */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 24px; /* Increase font size for visibility */
+  font-weight: bold;
+  color: #333; /* Set a contrasting color for visibility */
+  cursor: pointer;
+  background: transparent; /* Ensure no background overlaps */
+  border: none; /* Remove default styles */
+}
+
+.close-btn:hover {
+  color: #ff0000; /* Highlight color on hover */
+  transform: scale(1.2); /* Add a slight zoom effect */
+  transition: all 0.2s ease-in-out;
+}
+
+/* Popup position fix */
+.popup {
+  position: relative; /* Relative positioning for close-btn alignment */
+  padding-top: 40px; /* Add padding to avoid overlap */
+}
+
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+/* Label styles */
+.label {
+  font-size: 16px;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+  text-align: left;
+  color:black;
+}
+
+/* Dropdown styles */
+.dropdown {
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+/* Textarea styles */
+.textarea {
+  width: 100%;
+  font-size: 16px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: none;
+  margin-bottom: 20px;
+}
+
+/* Button styles */
+.rPopSubBtn {
+  background-color: #007bff;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+

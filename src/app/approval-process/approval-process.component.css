@@ -1,0 +1,360 @@
+.col-srno {
+  width: 4%;
+}
+
+.col-topic {
+  width: 40%;
+}
+.col-dod{
+  width: 5%;
+}
+.col-iteration-count{
+  width: 7%;
+}
+.col-uploaded-date{
+  width: 8%;
+}
+.col-assignedTo{
+  width: 15%;
+}
+
+.col-status{
+  width: 10%;
+}
+.col-action {
+  width: 10%;
+  max-height: 100px;
+  /* Set a fixed height for the cells */
+  overflow-y: auto;
+  white-space: nowrap;
+  /* Prevent text from wrapping */
+}
+
+/* Apply scroll styling only to table cells */
+tbody td {
+  max-height: 100px;
+  overflow-y: auto;
+}
+
+
+.col {
+  background-color: #214561;
+  color: white;
+  font-size: 14px;
+}
+
+td {
+  font-size: 14px;
+}
+
+.assin-var-page {
+  font-size: 18px;
+  margin: 10px;
+  color: #214561;
+}
+
+.bi {
+  margin-right: 10px;
+}
+
+#table-body {
+  background-color: #f8f9fa;
+}
+
+.btn {
+  margin: 10px;
+  padding: 3px 15px;
+}
+
+.bi-eye-fill {
+  font-size: 25px;
+  color: #214561;
+}
+
+.bi-trash-fill {
+  font-size: 25px;
+  color: #214561;
+}
+
+#contributors {
+  border-top: 1px solid #214561;
+  padding: 20px;
+  margin-top: 20px;
+  /* background-color: #81c8ff; */
+}
+
+
+
+/* /////////////////////////// srarch bar /////////////////////////// */
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+
+}
+
+.search-bar input[type="text"] {
+  border-radius: 0;
+  border-radius: 5px;
+  margin-right: 10px;
+  font-size: 12px;
+}
+
+.search-bar .btn {
+  align-items: center;
+  border-radius: 0;
+  border-radius: 5px;
+  background-color: #214561;
+}
+
+.bi-search {
+  margin-right: 0px;
+}
+
+
+/* /////////////////// table css ///////////////////// */
+.col-srno,
+.col-topic,
+.col-subtopic,
+.col-variation,
+.col-dod,
+.col-Uploaded-date,
+.col-Approval-Status,
+.col-action {
+  background-color: #214561;
+  color: white;
+  font-size: 14px;
+}
+
+td {
+  font-size: 14px;
+}
+
+#table-body {
+  background-color: #f8f9fa;
+}
+.bi-pencil-square{
+  color: #214565;
+  font-size: 22px;
+}
+/* //////////////////////////////// pop-up form css ////////////////////////// */
+/* Custom Modal Width */
+.custom-width {
+  max-width: 90%;
+  /* Adjust the width as needed */
+}
+
+/* Custom Modal Height */
+.custom-height {
+  max-height: 100vh;
+  /* Adjust the height as needed */
+  overflow-y: auto;
+  /* Enable vertical scrolling if content overflows */
+}
+
+.modal-title {
+  color: #214561;
+  font-size: 18px;
+}
+
+.form-label {
+  color: #214561;
+  font-size: 18px;
+}
+
+.form-select,
+.form-control {
+  color: #214561;
+  font-size: 18px;
+}
+
+/* .text-end{
+  border-top: 0.2px solid grey;
+  box-shadow: 0px 1px 5px grey inset;
+} */
+.btn {
+  font-size: 14px;
+  margin: 10px;
+  padding: 3px 15px;
+}
+
+.excel-heading {
+  border-top: 1px solid #214565;
+  color: #214565;
+  padding-top: 3px;
+}
+
+#excel-link {
+  border: 1px solid #214565;
+}
+
+#copy-button {
+  height: 35px;
+  color: white;
+  background-color: #214565;
+  padding: 5px 7px;
+  margin-top: 5px;
+  border-radius: 5px;
+}
+
+.bi-copy{
+  font-size: 14px;
+}
+
+#btn-assign {
+  font-size: 14px;
+  padding: 3px 15px;
+}
+.bi-arrow-down-square-fill, .bi-arrow-up-square-fill {
+  color: #214565;
+  font-size: 22px;
+  padding: 15px;
+}
+
+
+
+/* Ratinng Pop-Up css */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.close-btn {
+  float: right;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.star {
+  font-size: 30px;
+  color: #ddd;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.star:hover,
+.star.selected {
+  color: #f4c724;
+}
+
+.star:hover ~ .star {
+  color: #ddd;
+}
+
+.rPopSubBtn {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* // iteration btn css // */
+/* Style for the switch container */
+.switch-container {
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  gap: 50px;
+}
+
+/* Style for the switch itself */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #a21111;
+  transition: 0.4s; 
+  border-radius: 34px;
+}
+
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+/* Change the switch when checked */
+input:checked + .slider {
+  background-color: #4caf50;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Style for the text labels */
+.switch-text {
+  margin: 0px 25px;
+  color: #214561;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* .switch-text.yes {
+  display: none;
+} */
+
+input:checked ~ .switch-text.yes {
+  display: inline;
+}
+
+input:checked ~ .switch-text.no {
+  display: none;
+}
+
+#iteration-count{
+  width: 40px;
+}
+
+.custom-width{
+  width: 2000px;
+}
+

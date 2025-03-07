@@ -1,0 +1,39 @@
+<div class="assin-var-page"><i class="bi bi-check-circle-fill"></i> <b>Approved Questions</b></div>
+<div class="container" style="margin-top: 70px;">
+    <div class="row justify-content-end">
+        <div class="col-12 col-md-3 search-bar">
+            <input type="text" [value]="searchSignal.searchText()" (input)="updateSearchText($event)"
+                class="form-control" placeholder="Search...">
+            <button class="btn btn-primary text-center">
+                <i class="bi bi-search"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead class="tableHead">
+                <tr>
+                    <th class="col col-srno">Sr. No.</th>
+                    <th class="col col-question">Question</th>
+                    <th class="col col-solution">Solution</th>
+                    <th class="col col-correct">Correct Answer</th>
+                    <th class="col col-wrong">Wrong Answer</th>
+                    <th class="col col-uplodeddate">Uploded Date</th>
+                    <th class="col col-moderateddate">Approved Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of searchSignal.filteredItems()">
+                    <td>{{ item.srNo }}</td>
+                    <td>{{ item.question }}</td>
+                    <td>{{ item.solution }}</td>
+                    <td>{{ item.correctAns }}</td>
+                    <td>{{ item.wrongAns }}</td>
+                    <td>{{ item.uplodedDate }}</td>
+                    <td>{{ item.approvedDate }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

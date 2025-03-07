@@ -1,0 +1,177 @@
+<div class="assin-var-page"><i class="bi bi-check-circle-fill" ></i> <b> Approved Variations</b></div>
+<div class="container" style="margin-top: 70px;">
+    <div class="row justify-content-end">
+      <div class="col-12 col-md-3 search-bar">
+        <input 
+  type="text" 
+  [value]="searchText" 
+  (input)="updateSearchText($event)" 
+  class="form-control" 
+  placeholder="Search..."
+>
+        <button class="btn btn-primary text-center">
+          <i class="bi bi-search"></i>
+        </button>
+      </div>
+    </div>
+  
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover">
+        <thead class="tableHead">
+          <tr>
+            <th class="col col-srno">Sr. No.</th>
+            <th class="col col-topic">Topic No.</th>   
+            <th class="col col-variation">Variation No.</th>
+            <th class="col col-dod">DOD</th>
+            <th class="col col-assign-date">Assigned Date</th>
+            <th class="col col-assign-date">Approved Date</th>
+            <th class="col col-assign-by">Programmer</th>
+            <th class="col col-status">Moderation Status</th>
+            <th class="col col-status">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of filteredQue; let i=index">
+            <td>{{i+1}}</td>
+            <td>{{ item.subtopicno}}</td>
+            <td>{{ item.varno }}</td>
+            <td>{{ item.dod }}</td>
+            <td>{{ item.assigneddate }}</td>
+            <td>{{ item.approvedate }}</td>
+            <td>{{ item.programmeremailid }}</td>
+            <td style="color:orange; font-weight: 700;">Pending</td>
+            <td class="text-center" >
+              <i class="bi bi-eye-fill" data-bs-toggle="modal" data-bs-target="#myModal" (click)="getApprovedQuestionById(item.id)"></i>
+          </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+
+  <div class="modal " id="myModal" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-scrollable custom-width custom-height">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Approved Variations & Moderation Process</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="container mt-5">
+                    <form [formGroup]="queForm">
+                        <div class="mb-3">
+                            <label for="mathTopicsDropdown" class="form-label">Select Topic :</label>
+                            <select id="mathTopicsDropdown" class="form-select" formControlName="topicno">
+                                <option value="" disabled selected>Select Topic</option>
+                                <option *ngFor="let topic of topics let i = index" [value]="topic.topicno">
+                                    {{ topic.topicname1+' '+topic.topicname}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="subTopic" class="form-label">Select Sub Topic : </label>
+                            <select id="subTopicDropdown" class="form-select" formControlName="subtopicno">
+                                <option value="" disabled selected>Select Sub Topic</option>
+                                <option *ngFor="let subtopic of subtopics let i = index" [value]="subtopic.topicno">
+                                    {{ subtopic.topicname1+' '+subtopic.topicname}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="varNo" class="form-label">Variation Number : </label>
+                            <input class="form-control" id="varNo" rows="1" placeholder="Enter variation number here"
+                                formControlName="varno" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="dod" class="form-label">Degree Of Difficulty ( DOD ): </label>
+                            <input class="form-control" id="dod" rows="1" placeholder="Enter the DOD here"
+                                formControlName="dod" />
+                        </div>
+                        <div>
+                            <label for="answerTypesDropdown" class="form-label">Select Answer Type :</label>
+                            <select id="answerTypesDropdown" class="form-select" formControlName="answertype">
+                                <!-- Placeholder option -->
+                                <option value="" disabled selected>Select Answer Type</option>
+
+                                <!-- Iterate over combinedArray2 for Answer Types -->
+                                <option *ngFor="let AnswerType of answerTypes let i = index" [value]="AnswerType.id">
+                                    {{ AnswerType.name }}
+                                </option>
+                            </select>
+                        </div>
+                        <div>
+                            <!-- Question Type Dropdown -->
+                            <label for="questionTypesDropdown" class="form-label">Select Question Type :</label>
+                            <select id="questionTypesDropdown" class="form-select" formControlName="quetype">
+                                <option value="" disabled selected>Select Question Type</option>
+                                <option *ngFor="let questionType of questionTypes" [value]="questionType">
+                                    {{ questionType | titlecase }}
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="wrongAnswer3" class="form-label">Time : </label>
+                            <input class="form-control" id="time" formControlName="time"
+                                placeholder="Enter a required time in seconds to solve the question" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="question" class="form-label">Question : </label>
+                            <textarea class="form-control" id="question" rows="5" placeholder="Enter the question here"
+                              formControlName="question"></textarea>
+                          </div>
+                          <div class="mb-3">
+                            <label for="solution" class="form-label">Solution : </label>
+                            <textarea class="form-control" id="solution" rows="7" placeholder="Enter the solution here"
+                              formControlName="solution"></textarea>
+                          </div>
+                          <div class="mb-3">
+                            <label for="correctAnswer" class="form-label">Correct Answer 1 : </label>
+                            <textarea class="form-control" id="correctAnswer1" rows="1" placeholder="Enter the correct answer 1"
+                              formControlName="correctanswer1"></textarea>
+                          </div>
+                          <div class="mb-3">
+                            <label for="correctAnswer" class="form-label">Correct Answer 2 : </label>
+                            <textarea class="form-control" id="correctAnswer2" rows="1" placeholder="Enter the correct answer 2"
+                              formControlName="correctanswer2"></textarea>
+                          </div>
+                          <div class="mb-3">
+                            <label for="correctAnswer" class="form-label">Correct Answer 3 : </label>
+                            <textarea class="form-control" id="correctAnswer3" rows="1" placeholder="Enter the correct answer 3"
+                              formControlName="correctanswer3"></textarea>
+                          </div>
+                          <div class="mb-3">
+                            <label for="wrongAnswer1" class="form-label">Wrong Answer 1 : </label>
+                            <textarea class="form-control" id="wrongAnswer1" rows="1" placeholder="Enter a wrong answer 1"
+                              formControlName="wronganswer1"></textarea>
+                          </div>
+                          <div class="mb-3">
+                            <label for="wrongAnswer2" class="form-label">Wrong Answer 2 : </label>
+                            <textarea class="form-control" id="wrongAnswer2" rows="1" placeholder="Enter a wrong answer 2"
+                              formControlName="wronganswer2"></textarea>
+                          </div>
+                          <div class="mb-3">
+                            <label for="wrongAnswer3" class="form-label">Wrong Answer 3 : </label>
+                            <textarea class="form-control" id="wrongAnswer3" rows="1" placeholder="Enter a wrong answer 3"
+                              formControlName="wronganswer3"></textarea>
+                          </div>
+                      
+
+                    </form>
+                </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="text-end">  
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="btn-close">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

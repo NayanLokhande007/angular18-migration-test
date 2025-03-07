@@ -1,0 +1,253 @@
+<div class="assin-var-page"><i class="bi bi-check-circle-fill"></i> <b>Solution Completed</b></div>
+<div class="container" style="margin-top: 70px;">
+    <div class="row justify-content-end">
+        <div class="col-12 col-md-3 search-bar">
+            <input 
+  type="text" 
+  [value]="searchText" 
+  (input)="updateSearchText($event)" 
+  class="form-control" 
+  placeholder="Search..."
+>
+            <button class="btn btn-primary text-center">
+                <i class="bi bi-search"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead class="tableHead">
+                <tr>
+                    <th class="col col-srno">Sr. No.</th>
+                    <th class="col col-subTopic">Topic</th>
+                    <th class="col col-varNo">Variation No.</th>
+                    <th class="col col-queType">Question Type</th>
+                    <th class="col col-dod">DOD</th>
+                    <th class="col col-contriId">Uploaded Date</th>
+                    <th class="col col-date">Approved Date</th>
+                    <th class="col col-action">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of paginatedQue; let i = index;">
+                    <td>{{ (p - 1) * itemsPerPage + i + 1 }}</td>
+                    <td>{{ item.subtopicno }}</td>
+                    <td>{{ item.varno }}</td>
+                    <td id="queType">{{ item.quetype }}</td>
+                    <td>{{ item.dod }}</td>
+                    <td>{{ item.uploadeddatebycontributor }}</td>
+                    <td>{{ item.approveddate}}</td>
+                    <td class="text-center">
+                        <i class="bi bi-eye-fill" data-bs-toggle="modal" data-bs-target="#myModal" (click)="getReadyForCodingQuestionById(item.id)"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="pagination">
+            <button (click)="changePage(p - 1)" [disabled]="p === 1">Previous</button>
+            <span>Page {{ p }} of {{ totalPages }}</span>
+            <button (click)="changePage(p + 1)" [disabled]="p === totalPages">Next</button>
+          </div>   
+
+    </div>
+</div>
+
+
+<div class="modal " id="myModal" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-scrollable custom-width custom-height">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Solution Completed Question</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="container mt-5">
+                    <form [formGroup]="queForm">
+                        <div class="mb-3">
+                            <label for="mathTopicsDropdown" class="form-label">Select Topic :</label>
+                            <select id="mathTopicsDropdown" class="form-select" formControlName="topicno">
+                                <option value="" disabled selected>Select Topic</option>
+                                <option *ngFor="let topic of topics let i = index" [value]="topic.topicno">
+                                    {{ topic.topicname1+' '+topic.topicname}}
+                                </option>   
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="subTopic" class="form-label">Select Sub Topic : </label>
+                            <select id="subTopicDropdown" class="form-select" formControlName="subtopicno">
+                                <option value="" disabled selected>Select Sub Topic</option>
+                                <option *ngFor="let subtopic of subtopics let i = index" [value]="subtopic.topicno">
+                                    {{  subtopic.topicname1+' '+subtopic.topicname}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="varNo" class="form-label">Variation Number : </label>
+                            <input class="form-control" id="varNo" rows="1" placeholder="Enter variation number here"
+                                formControlName="varno" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="dod" class="form-label">Degree Of Difficulty ( DOD ): </label>
+                            <input class="form-control" id="dod" rows="1" placeholder="Enter the DOD here"
+                                formControlName="dod"/>
+                        </div>
+                        <div>
+                            <label for="answerTypesDropdown" class="form-label">Select Answer Type :</label>
+                            <select id="answerTypesDropdown" class="form-select" formControlName="answertype">
+                                <!-- Placeholder option -->
+                                <option value="" disabled selected>Select Answer Type</option>
+
+                                <!-- Iterate over combinedArray2 for Answer Types -->
+                                <option *ngFor="let AnswerType of answerTypes let i = index" [value]="AnswerType.id">
+                                    {{ AnswerType.name }}
+                                </option>
+                            </select>
+                        </div>
+                        <div>
+                            <!-- Question Type Dropdown -->
+                            <label for="questionTypesDropdown" class="form-label">Select Question Type :</label>
+                            <select id="questionTypesDropdown" class="form-select" formControlName="quetype">
+                                <option value="" disabled selected>Select Question Type</option>
+                                <option *ngFor="let questionType of questionTypes" [value]="questionType">
+                                    {{ questionType | titlecase }}
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="wrongAnswer3" class="form-label">Time : </label>
+                            <input class="form-control" id="time" formControlName="time"
+                                placeholder="Enter a required time in seconds to solve the question" />
+                        </div>
+
+                        <div class="mb-3" *ngIf="questionType=='image'">
+                            <label for="fileUpload" class="form-label">View Media : </label>
+                            <button class="form-control " (click)="showfile()">View media</button>
+                        </div>
+
+
+                        <div class="container" *ngIf="diplayfile==1">
+                            <div class="text-end">
+                                <button type="button" class="btn-close" #closebuttton
+                                    (click)="closeFile()"></button>
+                            </div>
+                            <div class="container text-center">
+                                <img class="" [src]="filePath" alt="" class="img-fluid" width="300" height="300">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="question" class="form-label">Question : </label>
+                            <textarea class="form-control" id="question" rows="5" placeholder="Enter the question here"
+                                formControlName="question"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="solution" class="form-label">Solution : </label>
+                            <textarea class="form-control" id="solution" rows="7" placeholder="Enter the solution here"
+                                formControlName="solution"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="correctAnswer" class="form-label">Correct Answer 1 : </label>
+                            <textarea class="form-control" id="correctAnswer1" rows="1"
+                                placeholder="Enter the correct answer 1" formControlName="correctanswer1"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="correctAnswer" class="form-label">Correct Answer 2 : </label>
+                            <textarea class="form-control" id="correctAnswer2" rows="1"
+                                placeholder="Enter the correct answer 2" formControlName="correctanswer2"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="correctAnswer" class="form-label">Correct Answer 3 : </label>
+                            <textarea class="form-control" id="correctAnswer3" rows="1"
+                                placeholder="Enter the correct answer 3" formControlName="correctanswer3"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="wrongAnswer1" class="form-label">Wrong Answer 1 : </label>
+                            <textarea class="form-control" id="wrongAnswer1" rows="1"
+                                placeholder="Enter a wrong answer 1" formControlName="wronganswer1"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="wrongAnswer2" class="form-label">Wrong Answer 2 : </label>
+                            <textarea class="form-control" id="wrongAnswer2" rows="1"
+                                placeholder="Enter a wrong answer 2" formControlName="wronganswer2"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="wrongAnswer3" class="form-label">Wrong Answer 3 : </label>
+                            <textarea class="form-control" id="wrongAnswer3" rows="1"
+                                placeholder="Enter a wrong answer 3" formControlName="wronganswer3"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="wrongAnswer3" class="form-label">Wrong Answer 4 : </label>
+                            <textarea class="form-control" id="wrongAnswer3" rows="1"
+                                placeholder="Enter a wrong answer 4" formControlName="wronganswer4"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="wrongAnswer3" class="form-label">Wrong Answer 5 : </label>
+                            <textarea class="form-control" id="wrongAnswer3" rows="1"
+                                placeholder="Enter a wrong answer 5" formControlName="wronganswer5"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="wrongAnswer3" class="form-label">Wrong Answer 6 : </label>
+                            <textarea class="form-control" id="wrongAnswer3" rows="1"
+                                placeholder="Enter a wrong answer 6" formControlName="wronganswer6"></textarea>
+                        </div>
+
+
+                        <div class="container-fluid" id="contributors">
+                            <div class="mb-3">
+                                <label for="comment" class="form-label">Comment : </label>
+                                <textarea class="form-control" id="comment" rows="5" placeholder="Enter a comment "
+                                    formControlName="comment"></textarea>
+                            </div>
+                        </div>
+
+
+                        <div class="container-fluid" id="contributors">
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label for="contributoremailid" class="form-label">Contributor Email Id</label>
+                                    <input class="form-control" id="contributoremailid" rows="1"
+                                        placeholder="Contributor email id" formControlName="contributoremailid" />
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="uploadeddatebycontributor" class="form-label">Question Uploded Date 
+                                        (By Contributor)</label>
+                                    <input class="form-control" id="uploadeddatebycontributor" rows="1"
+                                        placeholder="Question uploded date by (Contributor)"
+                                        formControlName="uploadeddatebycontributor" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label for="solutiondesigneremailid" class="form-label">Solution Provider Email Id</label>
+                                    <input class="form-control" id="solutiondesigneremailid" rows="1"
+                                        placeholder="Solution Provider email id" formControlName="solutiondesigneremailid" />
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="approveddate" class="form-label">Question Approved Date 
+                                        </label>
+                                    <input class="form-control" id="uploadeddatebycontributor" rows="1"
+                                        placeholder="Question Approved Date"
+                                        formControlName="approveddate" />
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="text-end">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>

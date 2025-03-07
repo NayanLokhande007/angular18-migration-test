@@ -1,0 +1,381 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    padding-top: 50px;
+    margin: 0;
+    overflow: hidden;
+}
+
+
+.main-heading {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    color: #4682b4;
+    margin-bottom: 50px;
+}
+
+.carousel-item {
+    font-size: 18px;
+    color: #2f4f4f;
+    margin-top: 10px;
+    height: 300px;
+    /* Set a fixed height for the slides */
+}
+
+.carousel-item img {
+    width: 100%;
+    /* Full width to fill the screen */
+    height: 100%;
+    /* Match the height */
+    object-fit: cover;
+    /* Cover the container */
+    border-radius: 10px;
+}
+
+.topic-name {
+    font-size: 38px;
+    font-weight: bold;
+    color: #ff6347;
+}
+
+.topic-name1 {
+    font-size: 34px;
+    color: #4682b4;
+}
+
+.topic-info {
+    font-size: 32px;
+    color: #2f4f4f;
+    margin-top: 10px;
+}
+
+/* .topic-name12 {
+    font-size: 34px;
+    color: #74b9f1;
+} */
+
+
+/* .topic-info12 {
+    font-size: 32px;
+    color: whitesmoke;
+    margin-top: 10px;
+} */
+
+.header {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* margin-bottom: 30px; */
+}
+
+.header-container img {
+    margin: 0 20px;
+    /* Space between logos and heading */
+}
+
+.main-header {
+    font-size: 45px;
+    /* Increase the font size for the main heading */
+    font-weight: bold;
+    /* Make the font bold */
+    color: #214565;
+    /* Darker blue color */
+    margin-bottom: 20px;
+    /* Space below the header */
+    text-transform: uppercase;
+    /* Uppercase text */
+    letter-spacing: 2px;
+    /* Increase letter spacing */
+}
+
+.sub-header {
+    font-size: 20px;
+    color: #214565;
+    font-weight: bold;
+}
+
+.logo {
+    height: 120px;
+    width: 120px;
+}
+
+.logo1 {
+    height: 120px;
+    width: 120px;
+}
+
+/* ................................ */
+
+
+.col-3-6-3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 150px;
+    /* color: white; */
+}
+
+.col-md-5 {
+    height: 300px;
+}
+
+.col-md-7 {
+    border-radius: 10px;
+}
+
+.carousel-caption{
+    align-items: center;
+    justify-content: center;
+}
+
+.button-container {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.container {
+    position: relative;
+    min-height: 200px;
+    /* Adjust this as needed */
+}
+
+.btn-primary {
+    margin-right: 25px;
+    padding: 5px 20px;
+    font-size: 14px;
+    border: 2px solid #214565;
+    border-radius: 30px;
+    font-weight: bold;
+    color: #214565;
+    background-color: #2145654d;
+}
+
+.footer {
+    position: sticky;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #214565;
+    color: white;
+    text-align: center;
+    font-size: 15px;
+    padding: 10px;
+}
+
+/* .content {
+    height: 75vh; 
+  } */
+
+.col-6-layout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+    color: white;
+}
+
+.head {
+    display: inline-block;
+    text-align: center;
+}
+
+.heading {
+    display: inline-block;
+    /* or inline */
+    border: 2px solid #214565;
+    /* Set your desired border */
+    border-radius: 30px;
+    padding: 10px;
+    /* Optional padding to add space between the content and the border */
+    margin-top: 25px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 900;
+    color: #214565;
+    background-color: #2145654d;
+    padding-left: 120px;
+    padding-right: 120px;
+}
+
+.e-content,
+.m-content {
+    font-size: 20px;
+    margin: 20px;
+    color: #214565;
+    font-weight: 600;
+}
+
+/* For standard desktop resolution (1366px wide) */
+@media (min-width: 1367px) {
+    .logo {
+        height: 120px;
+        width: 120px;
+    }
+
+    .main-header {
+        font-size: 28px;
+    }
+
+    .sub-header {
+        font-size: 20px;
+    }
+
+    .topic-name {
+        font-size: 30px;
+    }
+
+    .topic-name1 {
+        font-size: 30px;
+    }
+
+    .topic-info {
+        font-size: 25px;
+    }
+}
+
+/* For standard desktop resolution (1366px wide) */
+@media (max-width: 1366px) {
+    .logo {
+        height: 120px;
+        width: 120px;
+    }
+
+    .main-header {
+        font-size: 28px;
+    }
+
+    .sub-header {
+        font-size: 20px;
+    }
+
+    .topic-name {
+        font-size: 28px;
+    }
+
+    .topic-name1 {
+        font-size: 28px;
+    }
+
+    .topic-info {
+        font-size: 24px;
+    }
+}
+
+/* For screens between 992px and 1199px */
+@media (max-width: 1199px) {
+    .logo {
+        height: 110px;
+        width: 110px;
+    }
+
+    .main-header {
+        font-size: 27px;
+    }
+
+    .sub-header {
+        font-size: 18px;
+    }
+
+    .topic-name {
+        font-size: 27px;
+    }
+
+    .topic-name1 {
+        font-size: 27px;
+    }
+
+    .topic-info {
+        font-size: 23px;
+    }
+}
+
+/* For tablets and small laptops (768px to 991px) */
+@media (max-width: 991px) {
+    .logo {
+        height: 100px;
+        width: 100px;
+    }
+
+    .main-header {
+        font-size: 27px;
+    }
+
+    .sub-header {
+        font-size: 16px;
+    }
+
+    .topic-name {
+        font-size: 22px;
+    }
+
+    .topic-name1 {
+        font-size: 22px;
+    }
+
+    .topic-info {
+        font-size: 18px;
+    }
+}
+
+/* For mobile devices (767px and below) */
+@media (max-width: 767px) {
+    .logo {
+        height: 90px;
+        width: 90px;
+    }
+
+    .main-header {
+        font-size: 22px;
+    }
+
+    .sub-header {
+        font-size: 14px;
+    }
+
+    .topic-name {
+        font-size: 19px;
+    }
+
+    .topic-name1 {
+        font-size: 19px;
+    }
+
+    .topic-info {
+        font-size: 16px;
+    }
+}
+
+/* For extra small devices (576px and below) */
+@media (max-width: 576px) {
+    .logo {
+        height: 90px;
+        width: 90px;
+    }
+
+    .main-header {
+        font-size: 20px;
+    }
+
+    .sub-header {
+        font-size: 14px;
+    }
+
+    .topic-name {
+        font-size: 19px;
+    }
+
+    .topic-name1 {
+        font-size: 19px;
+    }
+
+    .topic-info {
+        font-size: 16px;
+    }
+}

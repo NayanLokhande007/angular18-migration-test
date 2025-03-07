@@ -1,0 +1,90 @@
+/* Custom column widths */
+.col-srno {
+    width: 5%;
+  }
+  
+  .col-question{
+    width: 20%;
+    max-height: 100px; /* Set a fixed height for the cells */
+    overflow-y: auto;
+    white-space: nowrap; /* Prevent text from wrapping */
+  }
+  .col-solution {
+    width: 31%;
+    max-height: 100px; /* Set a fixed height for the cells */
+    overflow-y: auto;
+    white-space: nowrap; /* Prevent text from wrapping */
+  }
+  .col-wrong {
+    width: 15%;
+    max-height: 100px; /* Set a fixed height for the cells */
+    overflow-y: auto;
+    white-space: nowrap; /* Prevent text from wrapping */
+  }
+  
+  .col-correct {
+    width: 15%;
+  }
+  
+  .col-uplodeddate {
+    width: 7%;
+  }
+  .col-moderateddate{
+    width: 7%;
+  }
+
+  
+  /* Apply scroll styling only to table cells */
+  tbody td {
+    max-height: 100px;
+    overflow-y: auto;
+  }
+  
+
+.col{
+   background-color: #214561;
+   color: white;
+   font-size: 14px;
+}
+td{
+   font-size: 14px;
+}
+.assin-var-page{
+   font-size: 18px;
+   margin: 10px;
+   color: #214561;
+}
+.bi{
+   margin-right: 10px;
+}
+#table-body{
+  background-color: #f8f9fa;
+}
+
+/* /////////////////////////// srarch bar /////////////////////////// */
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+  
+}
+
+.search-bar input[type="text"] {
+  border-radius: 0;
+  border-radius: 5px;  
+  margin-right: 10px;
+  font-size: 12px;
+}
+
+.search-bar .btn {
+  align-items: center;
+  border-radius: 0;
+  border-radius: 5px;
+  background-color: #214561;
+}
+
+.bi-search{
+  margin-right: 0px;
+}

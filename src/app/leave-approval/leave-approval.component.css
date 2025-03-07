@@ -1,0 +1,75 @@
+.full-form {
+    background-color: white;
+    border-radius: 25px;
+    padding: 25px;
+}
+.form-heading{
+    color: #214565;
+}
+label {
+    text-align: right;
+    font-size: 14px;
+    color: #214565;
+}
+
+.form-control,
+.form-select {
+    font-size: 14px;
+    color: #214565;
+}
+
+.btn-submit {
+    background-color: #214565;
+    color: white;
+    font-size: 14px;
+}
+
+
+/* // table css // */
+/* Custom column widths */
+.full-table{
+    margin-top: 50px;
+}
+
+.col-srno { width: 5%; }
+.col-name { width: 20%; }
+.col-typeOfLeave { width: 15%; }
+.col-startDate { width: 10%; }
+.col-endDate { width: 10%; }
+.col-reason { width: 30%; }
+.col-status { width: 10%; }
+
+
+.col{
+   background-color: #214561;
+   color: white;
+   font-size: 14px;
+}
+td{
+   font-size: 14px;
+}
+.assin-var-page{
+   font-size: 18px;
+   margin: 10px;
+   color: #214561;
+}
+#table-body{
+  background-color: #f8f9fa;
+}
+.accept, .pending, .decline{
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    padding: 5px;
+    font-weight: 700;
+}
+.accept{
+  background-color: green;  
+}
+.pending{
+    background-color: yellow;
+    color: #214565;
+}
+.decline{
+    background-color: red;
+}

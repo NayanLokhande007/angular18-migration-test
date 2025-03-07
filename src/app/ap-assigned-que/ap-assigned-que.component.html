@@ -1,0 +1,56 @@
+<div class="assin-var-page"><i class="bi bi-check-circle-fill"></i> <b>Assigned Questions</b></div>
+<div class="container" style="margin-top: 70px;">
+    <div class="row justify-content-end">
+        <div class="col-12 col-md-3 search-bar">
+            <input 
+            type="text" 
+            [value]="searchText" 
+            (input)="updateSearchText($event)" 
+            class="form-control" 
+            placeholder="Search..."
+          >
+            <button class="btn btn-primary text-center">
+                <i class="bi bi-search"></i>
+            </button>
+        </div>
+    </div>
+    <marquee behavior="scroll" direction="left" class="scroll-heading">
+        The variation has been assigned to the programmer, but the approval process is yet to begin
+    </marquee>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead class="tableHead">
+                <tr>
+                    <th class="col col-srno">Sr. No.</th>
+                    <th class="col col-topic">Topic No.</th>
+                    <th class="col col-varNo">Variation No.</th>
+                    <th class="col col-queType">Question Type</th>
+                    <th class="col col-dod">DOD</th>
+                    <th class="col col-ansType">Assigned Date</th>
+                    <th class="col col-assignedTo">Assigned To</th>
+                    <th class="col col-action">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of filteredQue; let i = index;">
+                    <td>{{ i+1 }}</td>
+                    <td>{{ item.subtopicno }}</td>
+                    <td>{{ item.varno }}</td>
+                    <td>{{ item.quetype }}</td>
+                    <td>{{ item.dod }}</td>
+                    <td>{{ item.assigneddate }}</td>
+                    <td>{{item.programmeremailid}}</td>
+                    <td class="text-center" *ngIf="item.isassigned!=1">
+                        <i class="bi bi-eye-fill" data-bs-toggle="modal" data-bs-target="#myModal"></i>
+                    </td>
+                    <td class="text-center" *ngIf="item.isassigned==1">
+                        <P style="background-color: rgba(255, 0, 0, 0.699); color: white; padding: 5px; font-size: 14px;">Assigned</P>
+                        <!-- <button class="btn-danger"> Assigned </button> -->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- <app-loader *ngIf="loading"></app-loader> -->

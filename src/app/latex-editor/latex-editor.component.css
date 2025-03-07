@@ -1,0 +1,50 @@
+.assin-var-page {
+  font-size: 18px;
+  margin: 10px;
+  color: #214561;
+}
+
+.bi {
+  margin-right: 10px;
+}
+
+.label {
+  color: #214561;
+  font-size: 14px;
+}
+
+.form-group {
+  margin-top: 13px;
+}
+
+.btn-primary {
+  color: white;
+  background-color: #214565;
+  font-size: 14px;
+  padding: 5px;
+}
+
+#UploadQue {
+  width: 96%;
+  margin: 0 2%;
+  margin-top: 30px;
+}
+
+#MathPreview {
+  width: 100%;
+  height: 70vh;
+  background-color: #fff;
+  padding: 10px;
+  font-size: 20px;
+}
+
+#MathInput {
+  height: 70vh;
+  font-size: 20px;
+}
+
+.btn-secondary{
+  font-size: 14px;
+  color: white;
+  background-color: #214565;
+}

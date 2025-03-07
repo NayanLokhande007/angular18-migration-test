@@ -1,0 +1,85 @@
+.card-heading {
+    background-color: #214565;
+    color: white;
+    padding: 10px 20px;
+    border: 2px solid #214565;
+    border-radius: 5px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+canvas {
+    width: 100% !important;
+    max-width: 100%;
+    height: 110px !important;
+    display: block;
+}
+
+.progress {
+    height: 80px;
+    background-color: #bdbdbd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, green, rgb(96, 250, 96));
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 10px;
+    transition: width 0.5s ease-in-out;
+}
+
+
+/* Responsive Design for Different Screen Sizes */
+/* For screens larger than 1366px */
+@media (min-width: 1367px) {
+    .barChart {
+        height: 500px !important;
+        /* Set a fixed height for large screens */
+    }
+}
+
+/* For standard desktop resolution (1366px wide) and below */
+@media (max-width: 1366px) {
+    .barChart {
+        height: 450px !important;
+        /* Adjust height for standard desktops */
+    }
+}
+
+/* For screens between 992px and 1199px */
+@media (max-width: 1199px) {
+    .barChart {
+        height: 400px !important;
+        /* Slightly smaller height for medium screens */
+    }
+}
+
+/* For tablets and small laptops (768px to 991px) */
+@media (max-width: 991px) {
+    .barChart {
+        height: 350px !important;
+        /* Reduced height for tablets and small laptops */
+    }
+}
+
+/* For mobile devices (767px and below) */
+@media (max-width: 767px) {
+    .barChart {
+        height: 300px !important;
+        /* Compact height for mobile devices */
+    }
+}
+
+/* For extra small devices (576px and below) */
+@media (max-width: 576px) {
+    .barChart {
+        height: 250px !important;
+        /* Minimal height for very small screens */
+    }
+}

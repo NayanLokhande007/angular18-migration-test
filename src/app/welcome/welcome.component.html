@@ -1,0 +1,294 @@
+<!-- Main Heading -->
+<div class="container-fluid header">
+    <div class="row">
+        <div class="col-md-2 col-3-6-3 col-2">
+            <img src="assets/logo.png" alt="Left Logo" class="logo">
+        </div>
+        <div class="col-md-8 col-3-6-3 col-8">
+            <div class="header-container ">
+                <div class="carousel-caption">
+                    <div class="main-header">COEPTECH VIRTUAL MATH LAB, PUNE</div>
+                    <div class="sub-header"> VIRTUAL MATH LAB MANAGEMENT SYSTEM</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 col-3-6-3 col-2">
+            <img src="assets/vmllogo.png" alt="Right Logo" class="logo">
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="container-fluid mt-5">
+        <div class="row justify-content-end">
+            <div class="col-auto">
+                <button type="button" class="btn btn-primary " (click)="gotoLogin()" id="login-btn">Log In</button>
+                <button type="button" class="btn btn-primary " (click)="gotoRegister()" id="reg-btn">Register</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carousel -->
+    <div id="welcomeCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+        <div class="carousel-inner">
+            <!-- Slide 1 -->
+            <div class="carousel-item active">
+                <div class="row">
+                    <div class="col-md-5 col-5-6 col-5">
+                        <img src="assets/topic1.png" class="d-block w-100" alt="Image 1">
+                    </div>
+                    <div class="col-md-7 col-5-6 col-7" style="background-color: #adaea0;">
+                        <div class="carousel-caption">
+                            <p class="topic-name">संख्याज्ञान, संख्यांचे प्रकार</p>
+                            <p class="topic-name1">Numbers, Types of numbers</p>
+                            <p class="topic-info">Learn about the different types of numbers and how they work.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-5 col-5-6 col-5">
+                        <img src="assets/topic2.png" class="d-block w-100" alt="Image 12">
+
+                    </div>
+                    <div class="col-md-7 col-5-6 col-7" style="background-color: #e1d9c0;">
+                        <div class="carousel-caption">
+                            <p class="topic-name">मूलभूत क्रिया -पूर्णांक आणि अपूर्णांक</p>
+                            <p class="topic-name1">Basic operations on Integers and Fractions</p>
+                            <p class="topic-info">Master the fundamental operations with whole and fractional numbers.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Slide 3 -->
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-5 col-5-6 col-5">
+                        <img src="assets/topic3.png" class="d-block w-100" alt="Image 12">
+                    </div>
+                    <div class="col-md-7 col-5-6 col-7" style="background-color: #c19d7f;">
+                        <div class="carousel-caption">
+                            <p class="topic-name">बीजगणित</p>
+                            <p class="topic-name1">Algebra</p>
+                            <p class="topic-info">Explore the world of equations and algebraic expressions.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Slide 4 -->
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-5 col-5-6 col-5">
+                        <img src="assets/topic4.png" class="d-block w-100" alt="Image 4">
+                    </div>
+                    <div class="col-md-7 col-5-6 col-7" style="background-color: #c2c9cb;">
+                        <div class="carousel-caption">
+                            <p class="topic-name">भूमिती</p>
+                            <p class="topic-name1">Geometry</p>
+                            <p class="topic-info">Dive into shapes, angles, and their properties.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Slide 5 -->
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-5 col-5-6 col-5">
+                        <img src="assets/topic5.png" class="d-block w-100" alt="Image 5">
+                    </div>
+                    <div class="col-md-7 col-5-6 col-7" style="background-color: #fcf6dc;">
+                        <div class="carousel-caption">
+                            <p class="topic-name">निर्देशक भूमिती</p>
+                            <p class="topic-name1">Co-ordinate Geometry</p>
+                            <p class="topic-info">Understand the geometry using coordinates and equations.</p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- Slide 6 -->
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-5 col-5-6 col-5">
+                        <img src="assets/topic6.png" class="d-block w-100" alt="Image 6">
+                    </div>
+                    <div class="col-md-7 col-5-6 col-7" style="background-color: #e0decf;">
+                        <div class="carousel-caption">
+                            <p class="topic-name">त्रिकोणमिती</p>
+                            <p class="topic-name1">Trigonometry</p>
+                            <p class="topic-info">Discover the study of angles and triangles with trigonometry.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Slide 7 -->
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-5 col-5-6 col-5">
+                        <img src="assets/topic7.png" class="d-block w-100" alt="Image 7">
+                    </div>
+                    <div class="col-md-7 col-5-6 col-7" style="background-color: #f1f7fa;">
+                        <div class="carousel-caption">
+                            <p class="topic-name">व्यावहारिक गणित</p>
+                            <p class="topic-name1">Commercial Mathematics</p>
+                            <p class="topic-info">Learn real-world applications of mathematical concepts.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Slide 8 -->
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-5 col-5-6 col-5">
+                        <img src="assets/topic8.png" class="d-block w-100" alt="Image 8">
+                    </div>
+                    <div class="col-md-7 col-5-6 col-7" style="background-color: #5c666c;">
+                        <div class="carousel-caption">
+                            <p class="topic-name">मापन आणि महत्वमापन</p>
+                            <p class="topic-name1" style="color: #74b9f1;">Measurement and Mensuration</p>
+                            <p class="topic-info" style="color: whitesmoke;">Understand measurements and the study of
+                                volume and area.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Slide 9 -->
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-5 col-5-6 col-5">
+                        <img src="assets/topic9.png" class="d-block w-100" alt="Image 9">
+                    </div>
+                    <div class="col-md-7 col-5-6 col-7" style="background-color: #f3efe1;">
+                        <div class="carousel-caption">
+                            <p class="topic-name">माहिती आकलन, संकलन आणि व्यवस्थापन</p>
+                            <p class="topic-name1">Data Handling, Collection, and Management</p>
+                            <p class="topic-info">Learn how to collect, handle, and interpret data.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Slide 10 -->
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-5 col-5-6 col-5">
+                        <img src="assets/topic10.jpg" class="d-block w-100" alt="Image 12">
+                    </div>
+                    <div class="col-md-7 col-5-6 col-7" style="background-color: #cfcfbf;">
+                        <div class="carousel-caption">
+                            <p class="topic-name">संभाव्यता</p>
+                            <p class="topic-name1">Probability</p>
+                            <p class="topic-info">Explore the concept of probability and its applications.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Slide 11 -->
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-5 col-5-6 col-5">
+                        <img src="assets/topic11.jpg" class="d-block w-100" alt="Image 12">
+                    </div>
+                    <div class="col-md-7 col-5-6 col-7" style="background-color: #dcd4be;">
+                        <div class="carousel-caption">
+                            <p class="topic-name">आकृतिबंध आणि अंकगणिती श्रेढी</p>
+                            <p class="topic-name1">Patterns and Arithmetic Progression</p>
+                            <p class="topic-info">Study patterns and the progression of numbers.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Slide 12 -->
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-5 col-5-6 col-5">
+                        <img src="assets/topic12.jpg" class="d-block w-100" alt="Image 12">
+                    </div>
+                    <div class="col-md-7 col-5-6 col-7" style="background-color: #313c4a;">
+                        <div class="carousel-caption">
+                            <p class="topic-name">संच</p>
+                            <p class="topic-name1" style="color: #74b9f1;">Sets</p>
+                            <p class="topic-info" style="color: whitesmoke;">Understand the concept of sets and their
+                                operations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#welcomeCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#welcomeCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 col-6-layout col-6-first">
+                <p class="e-content text-center">Welcome to Virtual Math Lab registration page for all, who desires to
+                    contribute meaningfully to make the
+                    site robust.
+                    There are various roles and ways by which one can contribute. Smallest of the small contribution is
+                    also
+                    important to build this site. One can create a variety of questions to make the student more
+                    versatile
+                    make them ready to accept any challange. Writing an ideal solution for a question in such way that
+                    student must understand the steps and also the reason behind every step. Creating wrong logical
+                    options
+                    is also a great challange, which one can accept. For this one must know, where the student can go
+                    wrong
+                    often. There are other more important roles also, like assessor, editor, approver and moderator. At
+                    each
+                    step, we try to be as better and accurate as possible. It is required to write the LaTeX code for
+                    mathematical contents for each question to make it acceptable by the system. One can be instrumental
+                    in
+                    creating audios and visuals based on various concept to help the students in becoming more
+                    comfortable
+                    with math.
+                    Your each idea and your creative ways are important for making the website more user friendly. Our
+                    target is to reach every student and make the learning math a joyful experience.
+                    Looking forward to get the helping hands from all corners of the society, in whatever way
+                    possible!!!
+                </p>
+            </div>
+            <div class="col-md-6 col-6-layout col-6-second">
+                <p class="m-content text-center">व्हर्च्युअल मॅथ लॅबच्या नोंदणी पृष्ठावर तुमचे स्वागत आहे, जे सर्वांसाठी
+                    खुले आहे जे या साईटला अधिक सशक्त
+                    बनवण्यासाठी अर्थपूर्ण योगदान देऊ इच्छितात. वेगवेगळ्या भूमिकांद्वारे आणि मार्गांनी तुम्ही योगदान देऊ
+                    शकता. लहानातल्या लहान योगदान देखील महत्त्वाचे आहे या साईटच्या निर्मितीसाठी. विद्यार्थ्यांना अधिक
+                    बहुमुखी
+                    बनवण्यासाठी, आणि कोणत्याही आव्हानाला सामोरे जाण्यास तयार करण्यासाठी, विविध प्रश्न तयार केले जाऊ
+                    शकतात.
+                    एका प्रश्नाचे आदर्श उत्तर असे लिहिणे की ज्यामुळे विद्यार्थ्याला प्रत्येक पावलाचे कारण आणि स्पष्टीकरण
+                    समजेल, हे देखील महत्त्वाचे आहे. चुकीचे पर्याय तयार करणे हे देखील एक मोठे आव्हान आहे, जे स्वीकारले
+                    जाऊ
+                    शकते. यासाठी, विद्यार्थ्यांचा सामान्यत: कुठे चुकीचा विचार होऊ शकतो, हे माहित असणे आवश्यक आहे. इतर
+                    महत्वाच्या भूमिका देखील आहेत जसे की परीक्षक, संपादक, मान्यकर्ता आणि मध्यस्थ. प्रत्येक टप्प्यावर
+                    आम्ही
+                    जितके शक्य आहे तितके चांगले आणि अचूक होण्याचा प्रयत्न करतो. प्रत्येक प्रश्नासाठी गणितीय सामग्रीसाठी
+                    LaTeX कोड लिहिणे आवश्यक आहे, जेणेकरून ते प्रणालीद्वारे स्वीकारले जाऊ शकतील. वेगवेगळ्या संकल्पनांवर
+                    आधारित ऑडिओ आणि व्हिज्युअल्स तयार करण्यात देखील तुम्ही मदत करू शकता, ज्यामुळे विद्यार्थ्यांना गणित
+                    अधिक
+                    सोयीचे वाटेल. तुमच्या प्रत्येक कल्पना आणि सर्जनशील मार्ग हे साईटला अधिक वापरकर्ता-अनुकूल बनवण्यासाठी
+                    महत्वाचे आहेत. आमचे ध्येय प्रत्येक विद्यार्थ्यांपर्यंत पोहोचणे आणि त्यांना गणित शिकणे आनंददायी बनवणे
+                    आहे. समाजाच्या सर्व कोपऱ्यातून आम्हाला शक्य त्या प्रत्येक मार्गाने मदतीची अपेक्षा आहे!!!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="footer">
+    <p>&copy; 2024 COEPTECH. All Rights Reserved.</p>
+</div>

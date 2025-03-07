@@ -1,0 +1,88 @@
+<div class="container mt-5 full-form">
+    <h2 class="text-center mb-4 form-heading">APPLY FOR LEAVE FORM</h2>
+    <form>
+        <!-- Leave Details -->
+        <div class="row mb-3 align-items-center">
+            <label for="leaveType" class="col-md-3 col-form-label">Type of Leave:</label>
+            <div class="col-md-7">
+                <select class="form-select" id="leaveType" required>
+                    <option value="" disabled selected>Select leave type</option>
+                    <option value="casual">Casual Leave</option>
+                    <option value="sick">Sick Leave</option>
+                    <option value="annual">Emergency Leave</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+            </div>
+        </div>
+        <div class="row mb-3 align-items-center">
+            <label for="startDate" class="col-md-3 col-form-label">Start Date:</label>
+            <div class="col-md-7">
+                <input type="date" class="form-control" id="startDate" required>
+            </div>
+            <div class="col-md-2">
+            </div>
+        </div>
+        <div class="row mb-3 align-items-center">
+            <label for="endDate" class="col-md-3 col-form-label">End Date:</label>
+            <div class="col-md-7">
+                <input type="date" class="form-control" id="endDate" required>
+            </div>
+            <div class="col-md-2">
+            </div>
+        </div>
+        <div class="row mb-3 align-items-center">
+            <label for="reason" class="col-md-3 col-form-label">Reason for Leave:</label>
+            <div class="col-md-7">
+                <textarea class="form-control" id="reason" rows="3" placeholder="Describe your reason for leave"
+                    required></textarea>
+            </div>
+            <div class="col-md-2">
+            </div>
+        </div>
+        <!-- Submit Button -->
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-submit">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<!-- //////////////////// -->
+
+<div class="container full-table">
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead class="tableHead">
+    
+    
+                <tr>
+                    <th class="col col-srno">Sr.No</th>
+                    <th class="col col-name">Name</th>
+                    <th class="col col-typeOfLeave">Type Of Leave</th>
+                    <th class="col col-startDate">Start Date</th>
+                    <th class="col col-endDate">End Date</th>
+                    <th class="col col-reason">Reason For Leave</th>
+                    <th class="col col-status">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2</td>
+                    <td>name</td>
+                    <td>sick</td>
+                    <td>2020</td>
+                    <td>2024</td>
+                    <td>majja karne</td>
+                    <td class="buttons">
+                        <p class="accept" >Accepted</p>
+                        <p class="pending ">Pending</p>
+                        <p class="decline">Declined</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

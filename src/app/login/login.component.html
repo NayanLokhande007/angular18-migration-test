@@ -1,0 +1,71 @@
+<div class="log-body">
+  <div class="login-page">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 offset-lg-1">
+          <h3 class="mb-3">Login Now</h3>
+          <div class="white">
+            <div class="row">
+              <div class="col-md-5 ps-0 d-none d-md-block">
+                <div class="form-right h-100 text-white text-center pt-5">
+                  <i class="bi bi-person text-white"></i>
+                  <h2 class="fs-1">COEPTECH / VML</h2>
+                  <h2 class="fs-1">Login</h2>
+                </div>
+              </div>
+              <div class="col-md-7 pe-0">
+                <div class="form-left h-100 py-5 px-5">
+                  <form [formGroup]="loginForm" class="row g-4">
+                    <div class="col-12">
+                      <label>Registered Email ID<span class="text-danger">*</span></label>
+                      <div class="input-group">
+                        <div class="input-group-text">
+                          <i class="bi bi-person-fill"></i>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Enter Username" name="username"
+                          formControlName="username" id="username" />
+                      </div>
+                    </div>
+
+                    <div class="col-12">
+                      <label>Password<span class="text-danger">*</span></label>
+                      <div class="input-group">
+                        <div class="input-group-text">
+                          <i class="bi bi-lock-fill"></i>
+                        </div>
+                        <input type="password" class="form-control" placeholder="Enter Password" name="password"
+                          formControlName="password" id="password" [type]="showPassword ? 'text' : 'password'" />
+                        <div class="input-group-text" (click)="togglePasswordVisibility()" style="cursor: pointer;">
+                          <i [class]="showPassword ? 'bi bi-eye-slash-fill' : 'bi bi-eye-fill'"></i>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                      <a class="float-end" (click)="forgotPassword()" id="forgot-pass" style="cursor: pointer;">Forgot Password?</a>
+                    </div>
+
+                    <div class="col-12">
+                      <button type="submit" class="btn  px-4 float-end mt-4" (click)=login() id="login">Login</button>
+                    </div>
+                    <div class="text-center">
+                      <a (click)=gotoHome() id="home" class="home-text" style="cursor: pointer;">
+                        <i class="bi bi-house-door-fill"></i>Home
+                      </a>
+                      <a>|</a>
+                      <a (click)="gotoRegisterPage()" class="register-text" id="register-text" style="cursor: pointer;">
+                        Don't have an account? Register
+                      </a>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-loader *ngIf="loading"></app-loader>

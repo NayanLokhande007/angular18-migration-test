@@ -1,0 +1,228 @@
+<div class="reg-body">
+    <div class="registration-page registration-page-scrollable">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <h2 class="mb-3">Register Now</h2>
+                    <div class="white">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-left px-5">
+                                    <form [formGroup]="registrationForm" class="row g-4">
+
+                                        <!-- Personal Information Section -->
+                                        <div class="col-12">
+                                            <h4>Personal Information</h4>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label for="firstName" class="col-12 col-md-12 col-lg-12">First
+                                                        Name<span class="text-danger">*</span> :</label>
+                                                    <div class="input-group" class="col-md-12">
+                                                        <input type="text" id="firstName" class="form-control"
+                                                            placeholder="Enter First Name"
+                                                            formControlName="firstName" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="lastName" class="col-12 col-md-12 col-lg-12">Last
+                                                        Name<span class="text-danger">*</span> :</label>
+                                                    <div class="input-group" class="col-md-12">
+                                                        <input type="text" id="lastName" class="form-control"
+                                                            placeholder="Enter Last Name" formControlName="lastName" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mt-4">
+                                                    <label for="gender" class="col-12 col-md-12 col-lg-12">Gender<span
+                                                            class="text-danger">*</span> :</label>
+                                                    <div class="input-group" class="col-md-12">
+                                                        <select id="gender" class="form-control"
+                                                            formControlName="gender">
+                                                            <option value="" disabled>Select Gender</option>
+                                                            <option value="male" id="male">Male</option>
+                                                            <option value="female" id="female">Female</option>
+                                                            <option value="other" id="other">Other</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mt-4">
+                                                    <label for="workingLanguage"
+                                                        class="col-12 col-md-12 col-lg-12">Working Language<span
+                                                            class="text-danger">*</span> :</label>
+                                                    <div class="col-md-9">
+                                                        <div class="form-check form-check-inline">
+                                                            <input type="radio" id="marathi"
+                                                                formControlName="workinglanguage" value="Marathi"
+                                                                class="form-check-input"
+                                                                (change)="onLanguageChange('Marathi')" />
+                                                            <label class="form-check-label"
+                                                                for="marathi">Marathi</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input type="radio" id="english"
+                                                                formControlName="workinglanguage" value="English"
+                                                                class="form-check-input"
+                                                                (change)="onLanguageChange('English')" />
+                                                            <label class="form-check-label"
+                                                                for="english">English</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input type="radio" id="both"
+                                                                formControlName="workinglanguage" value="Both"
+                                                                class="form-check-input"
+                                                                (change)="onLanguageChange('Both')" />
+                                                            <label class="form-check-label" for="both">Both</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Contact Information Section -->
+                                        <div class="col-12 mt-4">
+                                            <h4>Contact Information</h4>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label for="email" class="col-12 col-md-12 col-lg-12">Email<span
+                                                            class="text-danger">*</span> :</label>
+                                                    <div class="input-group">
+                                                        <input type="email" id="email" class="form-control"
+                                                            placeholder="Enter Email" formControlName="email"
+                                                            (change)="getEmailid()" />
+                                                        <button *ngIf="emailverified==0" type="button"
+                                                            class="btn btn-primary" id="verify-email-btn"
+                                                            (click)="verifyEmail()">Verify</button>
+                                                        <span *ngIf="emailverified==1"
+                                                            class="verified-tick text-center">
+                                                            <i class="bi bi-check-circle-fill text-success"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <label for="mobile" class="col-12 col-md-12 col-lg-12">Mob. No.<span
+                                                            class="text-danger">*</span> :</label>
+                                                    <div class="input-group">
+                                                        <input type="tel" id="mobile" class="form-control"
+                                                            placeholder="Enter Mobile Number"
+                                                            formControlName="mobileno" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <!-- Location Information Section -->
+                                        <div class="col-12 mt-4">
+                                            <h4>Address Information</h4>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label for="country" class="col-12 col-md-12 col-lg-12">Country<span
+                                                            class="text-danger">*</span> :</label>
+                                                    <div class="input-group" class="col-md-12">
+                                                        <!-- <div class="input-group-text"><i class="bi bi-globe"></i></div> -->
+                                                        <input type="text" id="country" class="form-control"
+                                                            placeholder="Enter country" formControlName="country" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="state" class="col-12 col-md-12 col-lg-12">State<span
+                                                            class="text-danger">*</span> :</label>
+                                                    <div class="input-group" class="col-md-12">
+                                                        <!-- <div class="input-group-text"><i class="bi bi-map"></i></div> -->
+                                                        <input type="text" id="state" class="form-control"
+                                                            placeholder="Enter state" formControlName="state" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mt-4">
+                                                    <label for="district"
+                                                        class="col-12 col-md-12 col-lg-12">District<span
+                                                            class="text-danger">*</span> :</label>
+                                                    <div class="input-group" class="col-md-12">
+                                                        <!-- <div class="input-group-text"><i class="bi bi-geo-alt"></i></div> -->
+                                                        <input type="text" id="district" class="form-control"
+                                                            placeholder="Enter district" formControlName="district" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mt-4">
+                                                    <label for="city" class="col-12 col-md-12 col-lg-12">City<span
+                                                            class="text-danger">*</span> :</label>
+                                                    <div class="input-group" class="col-md-12">
+                                                        <!-- <div class="input-group-text"><i class="bi bi-buildings"></i></div> -->
+                                                        <input type="text" id="city" class="form-control"
+                                                            placeholder="Enter City" formControlName="city" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mt-4">
+                                                    <label for="pin" class="col-12 col-md-12 col-lg-12">Pincode<span
+                                                            class="text-danger">*</span> :</label>
+                                                    <div class="input-group" class="col-md-12">
+                                                        <!-- <div class="input-group-text"><i class="bi bi-code-slash"></i></div> -->
+                                                        <input type="text" id="pincode" class="form-control"
+                                                            placeholder="Enter Pincode" formControlName="pincode" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Account Details Section -->
+                                        <div class="col-12 mt-4">
+                                            <h4>Account Details</h4>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label for="userType" class="col-12 col-md-12 col-lg-12">User
+                                                        Type<span class="text-danger">*</span> :</label>
+                                                    <div class="input-group" class="col-md-12">
+                                                        <!-- <div class="input-group-text"><i class="bi bi-person-check-fill"></i></div> -->
+                                                        <select (change)="getSelectedUserType($event)" id="userType"
+                                                            class="form-control" formControlName="userType">
+                                                            <option disabled>Select User Type</option>
+                                                            <option value="1" id="contributor">Contributor</option>
+                                                            <option value="2" id="assessor">Assessor</option>
+                                                            <option value="3" id="sol-provider">Solution Provider
+                                                            </option>
+                                                            <option value="4" id="programmer">Programmer</option>
+                                                            <option value="5" id="approver">Approver</option>
+                                                            <option value="6" id="moderator">Moderator</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="password" class="password"
+                                                        class="col-12 col-md-12 col-lg-12">Password<span
+                                                            class="text-danger">*</span>
+                                                        :</label>                                  
+                                                    <div class="input-group">
+                                                        <input type="password" class="form-control" placeholder="Enter Password" name="password"
+                                                          formControlName="password" id="password" [type]="showPassword ? 'text' : 'password'" />
+                                                        <div class="input-group-text" (click)="togglePasswordVisibility()" style="cursor: pointer;">
+                                                          <i [class]="showPassword ? 'bi bi-eye-slash-fill' : 'bi bi-eye-fill'"></i>
+                                                        </div>
+                                                      </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Submit Buttons -->
+                                        <div class="col-12 text-end mt-4">
+                                            <button [disabled]="emailverified==0" id="register-btn" type="submit"
+                                                class="btn px-4" (click)="Register()">Register</button>
+                                        </div>
+
+                                        <div class="text-center">
+                                            <p (click)="gotoLogin()" class="login-text" style="cursor: pointer;">Already
+                                                have an account? Log In
+                                            </p>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-loader *ngIf="loading"></app-loader>

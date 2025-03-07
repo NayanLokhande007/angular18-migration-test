@@ -1,0 +1,63 @@
+<!-- <p>login-request works!</p> -->
+
+<div class="assin-var-page"><i class="bi bi-person-fill-lock"></i> <b> Login Request</b></div>
+<div class="container" style="margin-top: 70px;">
+  <div class="row justify-content-end">
+    <div class="col-12 col-md-3 search-bar">
+      <input type="text" class="form-control" placeholder="Search...">
+      <button class="btn btn-primary text-center">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover">
+      <thead class="tableHead">
+
+        
+        <tr>
+          <th class="col col-srno">Sr.No</th>
+          <th class="col col-firstname">First Name</th>
+          <th class="col col-firstname">Last Name</th>
+          <th class="col col-subtopic">Gender</th>
+          <th class="col col-variation">Email Id</th>
+          <th class="col col-dod">User Type</th>
+          <th class="col col-assign-date">Address</th>
+          <th class="col col-assign-date">Registration Date</th>
+          <th class="col col-assign-by">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+    
+        <tr *ngIf="loginRequests && loginRequests.length === 0">
+          <td colspan="9" class="no-data-message">
+            <span>No pending login requests</span>
+          </td>
+        </tr>
+        <tr *ngFor="let row of loginRequests; let i = index">
+          <td>{{i+1}}</td>
+          <td>{{row.firstname}}</td>
+          <td>{{row.lastname}}</td>
+          <td>{{row.gender}}</td>
+          <td>{{row.emailid}}</td>
+
+          <td *ngIf="row.usertype==1">Contributor</td>
+          <td *ngIf="row.usertype==2">Assesor</td>
+          <td *ngIf="row.usertype==3">Solution Provider</td>
+          <td *ngIf="row.usertype==4">Programmer</td>
+          <td *ngIf="row.usertype==5">Approver</td>
+          <td *ngIf="row.usertype==6">Moderator</td>
+         
+          <td>{{row.city}} ,{{row.state}}</td>
+          <td>{{row.registerdate}}</td>
+          <td class="buttons">
+            <button class="accept" (click)="acceptRequest(row.emailid)" id="accept">Accept</button>
+            <button class="decline" (click)="declineRequest(row.emailid,row.firstname)">Decline</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<app-loader *ngIf="loading"></app-loader>

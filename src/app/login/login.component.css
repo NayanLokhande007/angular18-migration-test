@@ -1,0 +1,140 @@
+a {
+    text-decoration: none;
+}
+
+.log-body {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* #background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+} */
+
+.login-page {
+    position: relative;
+    z-index: 1;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.white,
+.form-right {
+    background-color: whitesmoke;
+    border: 1px solid #214565;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-right i {
+    font-size: 100px;
+}
+
+.mb-3 {
+    color: #214565;
+}
+
+.form-right {
+    background-color: #214565;
+}
+
+.col-12,
+.bi,
+.col-sm-12 {
+    color: #214565;
+    font-size: 14px;
+}
+
+.bi-eye-fill{
+    color: #214565;
+}
+
+.btn {
+    background-color: #214565;
+    color: white;
+    font-size: 12px;
+    margin: 5px;
+}
+
+.btn:hover {
+    background-color: #0d6efd;
+}
+
+.container {
+    margin-top: -50px;
+}
+
+.form-check-input {
+    border: 1px solid #214565;
+}
+
+.particles-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* your-component.component.css */
+.confetti-container {
+    text-align: center;
+    position: relative;
+    margin-top: 50px;
+}
+
+.congrats-text {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ff4081;
+    /* Pink color */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: fadeInOut 5s forwards;
+}
+
+.form-control {
+    font-size: 14px;
+}
+
+.register-text {
+    color: #214565;
+    font-size: 14px;
+    margin-left: 10px;
+}
+.home-text{
+    font-size: 14px;
+    margin-right: 10px;
+    color: #214565;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}

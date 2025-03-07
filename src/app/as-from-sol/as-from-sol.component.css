@@ -1,0 +1,167 @@
+/* Custom column widths */
+.col-srno {
+  width: 5%;
+}
+
+.col-topic {
+  width: 5%;
+}
+
+.col-subTopic {
+  width: 7%;
+}
+
+.col-iteration {
+  width: 9%;
+}
+.col-ansType{
+  width: 8%;
+}
+.col-solutionProvider{
+  width: 14%;
+}
+
+.col-varNo {
+  width: 8%;
+}
+.col-dod{
+  width: 7%;
+}
+.col-contriId{
+  width: 10%;
+}
+.col-date{
+  width: 10%;
+}
+
+.col-action {
+  width: 10%;
+  max-height: 100px;
+  /* Set a fixed height for the cells */
+  overflow-y: auto;
+  white-space: nowrap;
+  /* Prevent text from wrapping */
+}
+
+/* Apply scroll styling only to table cells */
+tbody td {
+  max-height: 100px;
+  overflow-y: auto;
+}
+
+
+.col {
+  background-color: #214561;
+  color: white;
+  font-size: 14px;
+}
+
+td {
+  font-size: 14px;
+}
+
+.assin-var-page {
+  font-size: 18px;
+  margin: 10px;
+  color: #214561;
+}
+
+.bi {
+  margin-right: 10px;
+}
+
+#table-body {
+  background-color: #f8f9fa;
+}
+
+.btn {
+  margin: 10px;
+  padding: 3px 15px;
+}
+
+.bi-pencil-square {
+  /* margin-right: 30PX; */
+  font-size: 25px;
+  color: #214561;
+}
+
+.bi-trash-fill {
+  font-size: 25px;
+  color: #214561;
+}
+
+#contributors{
+  border-top: 1px solid #214561;
+  padding: 20px;
+  margin-top: 20px;
+  /* background-color: #81c8ff; */
+}
+
+
+/* /////////////////////////// srarch bar /////////////////////////// */
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+
+}
+
+.search-bar input[type="text"] {
+  border-radius: 0;
+  border-radius: 5px;
+  margin-right: 10px;
+  font-size: 12px;
+}
+
+.search-bar .btn {
+  align-items: center;
+  border-radius: 0;
+  border-radius: 5px;
+  background-color: #214561;
+}
+
+.bi-search {
+  margin-right: 0px;
+}
+
+
+/* //////////////////////////////// pop-up form css ////////////////////////// */
+/* Custom Modal Width */
+.custom-width {
+  max-width: 90%;
+  /* Adjust the width as needed */
+}
+
+/* Custom Modal Height */
+.custom-height {
+  max-height: 100vh;
+  /* Adjust the height as needed */
+  overflow-y: auto;
+  /* Enable vertical scrolling if content overflows */
+}
+
+.modal-title {
+  color: #214561;
+  font-size: 18px;
+}
+
+.form-label {
+  color: #214561;
+  font-size: 18px;
+}
+
+.form-select,
+.form-control {
+  color: #214561;
+  font-size: 18px;
+}
+
+/* .text-end{
+  border-top: 0.2px solid grey;
+  box-shadow: 0px 1px 5px grey inset;
+} */
+.btn {
+  font-size: 14px;
+}

@@ -1,0 +1,120 @@
+<div class="overflow-auto" style="height: 88vh;">
+    <div class="p-2 text-white">
+  
+      <!-- empty row for Space -->
+      <div class="row"></div>
+  
+      <!-- /////////////////////////////////// Four Card Part //////////////////////////// -->
+  
+      <div class="container-fluid mt-5 mb-4">
+        <div class="row">
+  
+          <div class="col-12 col-md-6 col-lg-3 ">
+            <div class=" border bg-light">
+              <div class="row">
+                <div class="col-12 col-lg-3 " style="background-color:#0B6477 ;">
+                  <div class="p-3 text-center">
+                    <!-- <img src="assets/profile-icon.png" alt="Total Variations Icon" style="width: 70px;height: 70px;"> -->
+                    <i class="bi bi-graph-up" style="font-size: 4rem; color: white;"></i>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-9 ">
+                  <div class="p-3 ">
+                    <h4 style="color:#0B6477; font-weight: 700;">Assigned Variations</h4>
+                    <h2 style="color:#0B6477; font-weight: 700;">{{totalAssigned}}</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-12 col-md-6 col-lg-3 ">
+            <div class=" border bg-light">
+              <div class="row">
+                <div class="col-12 col-lg-3 " style="background-color:#2BAE66  ;">
+                  <div class="p-3 text-center">
+                    <!-- <img src="assets/profile-icon.png" alt="Total Variations Icon" style="width: 70px;height: 70px;"> -->
+                    <i class="bi bi-check-circle-fill" style="font-size: 4rem; color: white;"></i>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-9 ">
+                  <div class="p-3 ">
+                    <h4 style="color:#2BAE66 ; font-weight: 700;">Approved Variations</h4>
+                    <h2 style="color:#2BAE66 ; font-weight: 700;">{{approved}}</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-12 col-md-6 col-lg-3 ">
+            <div class=" border bg-light">
+              <div class="row">
+                <div class="col-12 col-lg-3 " style="background-color:#1F8EA0  ;">
+                  <div class="p-3 text-center">
+                    <!-- <img src="assets/profile-icon.png" alt="Total Variations Icon" style="width: 70px;height: 70px;"> -->
+                    <i class="bi bi-shield-check" style="font-size: 4rem; color: white;"></i>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-9 ">
+                  <div class="p-3 ">
+                    <h4 style="color:#1F8EA0 ; font-weight: 700;">Moderated Variations</h4>
+                    <h2 style="color:#1F8EA0 ; font-weight: 700;">{{moderated}}</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-12 col-md-6 col-lg-3 ">
+            <div class=" border bg-light">
+              <div class="row">
+                <div class="col-12 col-lg-3 " style="background-color:#E74C3C;">
+                  <div class="p-3 text-center">
+                    <!-- <img src="assets/profile-icon.png" alt="Total Variations Icon" style="width: 70px;height: 70px;"> -->
+                    <i class="bi bi-hourglass" style="font-size: 4rem; color: white;"></i>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-9 ">
+                  <div class="p-3 ">
+                    <h4 style="color:#E74C3C; font-weight: 700;">Pending Variations</h4>
+                    <h2 *ngIf="pending<0" style="color:#E74C3C; font-weight: 700;">0</h2>
+                    <h2 *ngIf="pending>=0" style="color:#E74C3C; font-weight: 700;">{{pending}}</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+  
+      <!-- //////////////////////// Graph Part////////////////////// -->
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <h2 class="card-title">Monthly Completed Variations Report {{currentyear}}</h2>
+                  <!-- Dropdown for selecting the year -->
+                  <div>
+                    <select 
+                      class="form-select w-auto" 
+                      [value]="currentyear" 
+                      (change)="onYearChange($event)">
+                      <option *ngFor="let year of availableYears" [value]="year">
+                        {{ year }}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+                <canvas id="myBarChart" class="barChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>

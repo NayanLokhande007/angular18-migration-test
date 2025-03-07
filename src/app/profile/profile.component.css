@@ -1,0 +1,125 @@
+/* .bg-icon{background-color: var(--primary-color); border-radius: 5px; border-radius: 100%;
+  width: 100px; height: 100px; display: block; margin: auto; 
+
+  img{width: 100%; display: block; margin: auto;}
+}
+
+
+h2{text-align: center; font-size: 16px; font-weight: 600; color: var(--black-color); margin-top: 20px; }
+.cap{font-size: 13px; text-align: center; color: #888;}
+.height{height: 275px;}
+
+
+.form-control::placeholder{color: #999 !important; font-size: 11px !important;}
+input[type=date]{color:#999 !important; font-size: 11px !important;}
+.col-md-4 { padding: 5px;}
+
+.control-red  {border: 1px solid red !important;}
+
+.error-msg { color: red; font-size: 11px;}
+
+.read-only-select {
+  pointer-events: none;
+  background-color: #e9ecef;
+} */
+.assin-var-page{
+  font-size: 18px;
+  margin: 10px;
+  color: #214561;
+}
+.bi{
+  margin-right: 10px;
+}
+
+/* General Container Styling */
+.container-fluid {
+  padding: 20px;
+  margin-top: 50px;
+}
+
+/* Profile Card Styling */
+.bg-card {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.bg-icon img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #214565;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #343a40;
+  margin-top: 15px;
+}
+
+.bg-card p {
+  color: #6c757d;
+  font-size: 18px;
+}
+
+/* Form Styling */
+form .form-control {
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  font-size: 12px;
+}
+
+form .form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.form-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #214565;
+  margin-bottom: 8px;
+}
+
+.btn-primary {
+  background-color: #214565;
+  border-color: #214565;
+  padding: 5px 10px;
+  margin: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: #0d6efd;
+  transform: translateY(-2px);
+}
+
+/* Responsive Spacing */
+@media (max-width: 767.98px) {
+  .bg-card {
+      padding: 15px;
+  }
+  
+  .btn-primary {
+      width: 100%;
+  }
+
+  form .form-control {
+      margin-bottom: 15px;
+  }
+
+  h2 {
+      font-size: 20px;
+  }
+
+  .bg-card p {
+      font-size: 16px;
+  }
+}

@@ -1,0 +1,80 @@
+h2 {
+    color: #224561;
+    font-size: 22px;
+}
+
+h4 {
+    color: #224561;
+    font-size: 18px;
+}
+
+.card-body {
+    width: 100%;
+}
+
+.barChart {
+    width: 100% !important;
+}
+
+.overflow-auto {
+    overflow-y: scroll;
+    padding: 10px;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+}
+
+.overflow-auto::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera */
+}
+
+/* Responsive Design for Different Screen Sizes */
+/* For screens larger than 1366px */
+@media (min-width: 1367px) {
+    .barChart {
+        height: 500px !important;
+        /* Set a fixed height for large screens */
+    }
+}
+
+/* For standard desktop resolution (1366px wide) and below */
+@media (max-width: 1366px) {
+    .barChart {
+        height: 450px !important;
+        /* Adjust height for standard desktops */
+    }
+}
+
+/* For screens between 992px and 1199px */
+@media (max-width: 1199px) {
+    .barChart {
+        height: 400px !important;
+        /* Slightly smaller height for medium screens */
+    }
+}
+
+/* For tablets and small laptops (768px to 991px) */
+@media (max-width: 991px) {
+    .barChart {
+        height: 350px !important;
+        /* Reduced height for tablets and small laptops */
+    }
+}
+
+/* For mobile devices (767px and below) */
+@media (max-width: 767px) {
+    .barChart {
+        height: 300px !important;
+        /* Compact height for mobile devices */
+    }
+}
+
+/* For extra small devices (576px and below) */
+@media (max-width: 576px) {
+    .barChart {
+        height: 250px !important;
+        /* Minimal height for very small screens */
+    }
+}

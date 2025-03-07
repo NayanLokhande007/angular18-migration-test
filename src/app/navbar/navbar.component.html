@@ -1,0 +1,330 @@
+<nav class="vertical-nav navbar-expand-lg navbar-white bg-white overflow-auto">
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" id="collapse-bts">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="position-sticky">
+    <ul class="nav flex-column">
+
+      <!-- /////////////////////////// CONTRIBUTOR /////////////////////////// -->
+
+      <li class="nav-item" *ngIf="usertype == 1" id="que-entry">
+        <a class="nav-link" (click)="gotoQueEntry()">
+          <i class="bi bi-file-earmark-text-fill"></i> Question Entry
+        </a>
+      </li>
+
+      <li class="nav-item" *ngIf="usertype == 1" id="que">
+        <a class="nav-link" (click)="gotoViewQue()">
+          <i class="bi bi-question-circle-fill"></i> Questions
+        </a>
+      </li>
+      <!-- //////////////////////// ASSESOR //////////////////////    -->
+
+      <li class="nav-item" *ngIf="usertype == 2" id="as-dashboard">
+        <a class="nav-link" (click)="gotoAsDashboard()">
+          <i class="bi bi-house-fill"></i> Dashboard
+        </a>
+      </li>
+
+      
+
+      <li class="nav-item" *ngIf="usertype == 2" id="ad-loginReq">
+        <a class="nav-link d-flex align-items-center" (click)="gotoIncomingQue()">
+          <i class="bi bi-file-earmark-plus-fill"></i>
+          <span class="ms-1"> New Questions</span>
+          <span *ngIf="newQueForAssesorCount > 0"
+            class="badge bg-danger text-end ms-2 d-flex justify-content-center align-items-center"
+            style="width: 24px; height: 24px; border-radius: 80%; font-size: 1rem;">
+            {{ newQueForAssesorCount }}
+          </span>
+        </a>
+      </li>
+
+    
+
+      <li class="nav-item" *ngIf="usertype == 2"  id="as-que">
+        <a class="nav-link d-flex align-items-center" (click)="gotoQue()">
+          <i class="bi bi-check-square-fill"></i>
+          <span class="ms-1"> Ready for Solution </span>
+          <span *ngIf="readyForSolutionLength > 0"
+            class="badge bg-danger text-end ms-2 d-flex justify-content-center align-items-center"
+            style="width: 24px; height: 24px; border-radius: 80%; font-size: 1rem;">
+            {{ readyForSolutionLength }}
+          </span>
+        </a> 
+      </li>
+
+
+      <li class="nav-item" *ngIf="usertype == 2"  id="as-que">
+        <a class="nav-link d-flex align-items-center" (click)="gotoSolDesigner()">
+          <i class="bi bi-clipboard-check-fill"></i>
+          <span class="ms-1"> Check Solution </span>
+          <span *ngIf="checkSolutionOfAssesorDataCount > 0"
+            class="badge bg-danger text-end ms-2 d-flex justify-content-center align-items-center"
+            style="width: 24px; height: 24px; border-radius: 80%; font-size: 1rem;">
+            {{ checkSolutionOfAssesorDataCount }}
+          </span>
+        </a> 
+      </li>
+
+      <li class="nav-item" *ngIf="usertype == 2" id="redForProg">
+        <a class="nav-link" (click)="gotoLatexComp()">
+          <i class="bi bi-check-circle-fill"></i> Solution Completed
+        </a>
+      </li>
+
+      <!-- //////////////////////// SOLUTION DESIGNER //////////////////////// -->
+      <li class="nav-item" *ngIf="usertype == 3" id="sol-frmAsse">
+        <a class="nav-link " aria-current="page" (click)="gotoSolDashboard()">
+          <i class="bi bi-house-fill"></i> Dashboard
+        </a>
+      </li>
+
+     
+
+      <li class="nav-item" *ngIf="usertype == 3"  id="as-que">
+        <a class="nav-link d-flex align-items-center" (click)="gotoSolFromAssessor()">
+          <i class="bi bi-clipboard-check-fill"></i>
+          <span class="ms-1"> Design Solutions </span>
+          <span *ngIf="assignedQueForSolutionProviderDataCount > 0"
+            class="badge bg-danger text-end ms-2 d-flex justify-content-center align-items-center"
+            style="width: 24px; height: 24px; border-radius: 80%; font-size: 1rem;">
+            {{ assignedQueForSolutionProviderDataCount }}
+          </span>
+        </a> 
+      </li>
+
+      <li class="nav-item" *ngIf="usertype == 3" id="sol-apprByAsse">
+        <a class="nav-link " aria-current="page" (click)="gotoSolApproved()">
+          <i class="bi bi-check-circle-fill"></i> Solution Completed
+        </a>
+      </li>
+
+      <!-- //////////////////////////// PROGRAMMER ///////////////////////////////// -->
+
+      <li class="nav-item" *ngIf="usertype == 4" id="prog-dashboard">
+        <a class="nav-link " aria-current="page" (click)="gotoDashboard()">
+          <i class="bi bi-house-fill"></i> Dashboard
+        </a>
+      </li>
+
+
+      <li class="nav-item" *ngIf="usertype == 4" id="ad-loginReq">
+        <a class="nav-link d-flex align-items-center" (click)="gotoAssignedVar()">
+          <i class="bi bi-file-earmark-plus-fill"></i>
+          <span class="ms-1"> Assigned Questions</span>
+          <span *ngIf="assignedQueforProgrammer > 0"
+            class="badge bg-danger text-end ms-2 d-flex justify-content-center align-items-center"
+            style="width: 24px; height: 24px; border-radius: 80%; font-size: 1rem;">
+            {{ assignedQueforProgrammer }}
+          </span>
+        </a>
+      </li>
+
+
+      <li class="nav-item" *ngIf="usertype == 4" id="ad-loginReq">
+        <a class="nav-link d-flex align-items-center" (click)="gotoUploadVar()">
+          <i class="bi bi-cloud-upload-fill"></i>
+          <span class="ms-1"> Approval Process</span>
+          <span *ngIf="approvalProcessOfProgrammerCount > 0"
+            class="badge bg-danger text-end ms-2 d-flex justify-content-center align-items-center"
+            style="width: 24px; height: 24px; border-radius: 80%; font-size: 1rem;">
+            {{ approvalProcessOfProgrammerCount }}
+          </span>
+        </a>
+      </li>
+
+   
+
+      <li class="nav-item" *ngIf="usertype == 4" id="ad-loginReq">
+        <a class="nav-link d-flex align-items-center" (click)="gotoApprovedVar()">
+          <i class="bi bi-patch-check-fill "></i>
+          <span class="ms-1"> Ready for Moderation</span>
+          <span *ngIf="readyForModerationCount > 0"
+            class="badge bg-danger ms-2 d-flex justify-content-center align-items-center"
+            style="width: 24px; height: 24px; border-radius: 80%; font-size: 1rem;">
+            {{ readyForModerationCount }}
+          </span>
+        </a>
+      </li>
+
+      <li class="nav-item" *ngIf="usertype == 4" id="upForMod">
+        <a class="nav-link" (click)="gotoUploadModeration()">
+          <i class="bi bi-shield-lock-fill"></i> VML Portal  
+        </a>
+      </li>
+
+      <li class="nav-item" *ngIf="usertype == 4" id="modVar">
+        <a class="nav-link" (click)="gotoModeratedVar()">
+          <i class="bi bi-shield-fill-check"></i> Moderated Variations
+        </a>
+      </li>
+
+      <!-- /////////////////////////////// Approver /////////////////////////////// -->
+
+      <li class="nav-item" *ngIf="usertype == 5" id="ad-dashboard">
+        <a class="nav-link " aria-current="page" (click)="gotoApproverDashboard()">
+          <i class="bi bi-house-fill"></i> Dashboard
+        </a>
+      </li>
+
+     
+      <li class="nav-item" *ngIf="usertype == 5" id="ad-loginReq">
+        <a class="nav-link d-flex align-items-center" (click)="gotoReadyQue()">
+          <i class="bi bi-question-circle-fill"></i>
+          <span class="ms-1"> Questions to Assign</span>
+          <span *ngIf="readyQueCount > 0" class="badge bg-danger ms-2 d-flex justify-content-center align-items-center"
+            style="width: 24px; height: 24px; border-radius: 80%; font-size: 1rem;">
+            {{ readyQueCount }}
+          </span>
+        </a>
+      </li>
+
+      <li class="nav-item" *ngIf="usertype == 5" id="ad-AssinedQue">
+        <a class="nav-link" (click)="gotoApAssignedQue()">
+          <i class="bi bi-check-circle-fill"></i> Assigned Questions
+        </a>
+      </li>
+
+    
+      <li class="nav-item" *ngIf="usertype == 5" id="ad-loginReq">
+        <a class="nav-link d-flex align-items-center" (click)="gotoApproverApprovalProcess()">
+          <i class="bi bi-arrow-repeat"></i>
+          <span class="ms-1"> Approval Process</span>
+          <span *ngIf="approvalProcessQueCount > 0"
+            class="badge bg-danger ms-2 d-flex justify-content-center align-items-center"
+            style="width: 24px; height: 24px; border-radius: 80%; font-size: 1rem;">
+            {{ approvalProcessQueCount }}
+          </span>
+        </a>
+      </li>
+
+      <li class="nav-item" *ngIf="usertype == 5" id="ad-AssinQue">
+        <a class="nav-link" (click)="gotoApproverApprovedVar()">
+          <i class="bi bi-check-circle-fill"></i> Approved Variations
+        </a>
+      </li>
+
+
+      <li class="nav-item" *ngIf="usertype == 5" id="ad-AssinQue">
+        <a class="nav-link" (click)="gotoApproverModeratedVariations()">
+          <i class="bi bi-shield-fill-check"></i> Moderation Completed
+        </a>
+      </li>
+
+      <li class="nav-item" *ngIf="usertype == 4" id="ad-AssinQue">
+        <a class="nav-link" (click)="gotoEditVariations()">
+          <i class="bi bi-file-earmark-diff-fill"></i> Edit Variation
+        </a>
+      </li>
+
+
+      <!-- ///////////////////////////// Moderator ////////////////////////////// -->
+      <li class="nav-item" *ngIf="usertype == 6" id="ad-dashboard">
+        <a class="nav-link" (click)="gotoModeratorDashboard()">
+          <i class="bi bi-house-fill"></i> Dashboard
+        </a>
+      </li>
+
+      <li class="nav-item" *ngIf="usertype == 6" id="ad-loginReq">
+        <a class="nav-link d-flex align-items-center" (click)="gotoNewModeration()">
+          <i class="bi bi-check-circle-fill"></i>
+          <span class="ms-1"> New Moderation</span>
+          <span *ngIf="newModerationCount > 0"
+            class="badge bg-danger ms-3 d-flex justify-content-center align-items-center"
+            style="width: 24px; height: 24px; border-radius: 80%; font-size: 1rem;">
+            {{ newModerationCount }}
+          </span>
+        </a>
+      </li>
+
+      <li class="nav-item" *ngIf="usertype == 6" id="ad-dashboard">
+        <a class="nav-link" (click)="gotoModerationCompleted()">
+          <i class="bi bi-shield-fill-check"></i> Moderation Completed
+        </a>
+      </li>
+
+      <!-- /////////////////////////////// Admin /////////////////////////////// -->
+      <li class="nav-item" *ngIf="usertype == 7" id="ad-dashboard">
+        <a class="nav-link" (click)="gotoAdminDashboard()">
+          <i class="bi bi-house-fill"></i> Dashboard
+        </a>
+      </li>
+
+      <li class="nav-item" *ngIf="usertype == 7" id="ad-AssinQue">
+        <a class="nav-link" (click)="gotoEmployeeDetails()">
+          <i class="bi bi-check-circle-fill"></i> Employee Details
+        </a>
+      </li>
+
+      <li class="nav-item" *ngIf="usertype == 7" id="ad-loginReq">
+        <a class="nav-link d-flex align-items-center" (click)="gotoLoginRequest()">
+          <i class="bi bi-person-fill-lock"></i>
+          <span class="ms-1"> Login Requests</span>
+          <span *ngIf="requestCount > 0" class="badge bg-danger ms-5 d-flex justify-content-center align-items-center"
+            style="width: 24px; height: 24px; border-radius: 80%; font-size: 1rem;">
+            {{ requestCount }}
+          </span>
+        </a>
+      </li>
+
+      <li class="nav-item" id="driveLinks" *ngIf="usertype == 7 || usertype == 5 ">
+        <a class="nav-link" (click)="gotoDriveLinks()">
+          <i class="bi bi-cloud-arrow-up-fill"></i> Drive Links
+        </a>
+      </li>
+
+      <!-- common for all -->
+      <!-- <li class="nav-item" id="latexEdit" *ngIf="usertype != 1">
+        <a class="nav-link" (click)="gotoLeaveApproval()">
+          <i class="bi bi-file-earmark-text-fill"></i>Leave Approval
+        </a>
+      </li> -->
+
+      <li class="nav-item" id="latexEdit">
+        <a class="nav-link" (click)="gotoLatexEditor()">
+          <i class="bi bi-file-code-fill"></i> Latex Editor
+        </a>
+      </li>
+
+      <!-- <li class="nav-item dropdown">
+        <a class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="bi bi-text-paragraph"></i> Font Size
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" (click)="changeTableFontSize('14px')">Small</a>
+          <a class="dropdown-item"  (click)="changeTableFontSize('16px')">Default</a>
+          <a class="dropdown-item"  (click)="changeTableFontSize('18px')">Medium</a>
+          <a class="dropdown-item" (click)="changeTableFontSize('20px')">Large</a>
+        </ul>
+      </li> -->
+      
+
+      <!-- <div class="dropdown table-font-dropdown" >
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Table Font
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item"  (click)="changeTableFontSize('14px')">Small</a>
+          <a class="dropdown-item"  (click)="changeTableFontSize('16px')">Default</a>
+          <a class="dropdown-item"  (click)="changeTableFontSize('18px')">Medium</a>
+          <a class="dropdown-item"  (click)="changeTableFontSize('20px')">Large</a>
+        </div>
+      </div> -->
+      
+
+    </ul>
+  </div>
+
+  <!-- <div class="mt-auto">
+    <div class="calendar-clock p-3 border-top">
+      <div id="calendar" class="mb-3">
+        <div id="current-date" class="fw-bold text-center"></div>
+      </div>
+      <div id="clock" class="text-center fw-bold"></div>
+    </div>
+  </div> -->
+
+</nav>

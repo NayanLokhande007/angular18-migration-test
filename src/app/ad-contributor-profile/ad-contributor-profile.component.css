@@ -1,0 +1,127 @@
+/* /////////////////// profile display ////////////////// */
+.bi-person-circle {
+    font-size: 75px;
+    color: #214565;
+}
+
+h1,
+h3 {
+    color: #214565;
+}
+
+a{
+    color: #214565;
+    font-size: 16px;
+}
+
+.partition-bar {
+    margin: 0px 10px;
+}
+
+/* //////////////////// circuler progress bar ///////////// */
+/* Section container styling */
+
+/* Column styling */
+.cirProBar-part {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    /* border: 1px solid white;  */
+}
+
+/* Circular progress bar container */
+.cirProBar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 90%;
+    position: relative;
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px;
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.596);  */
+}
+
+/* Centering the canvas */
+#multiCircularProgress {
+    width: 100%;
+    height: 100%;
+}
+
+/* ///////////////// Cards ////////////// */
+
+.card {
+    border-radius: 20px;
+    margin: 0px 25px;
+}
+
+.card-title, .font-weight-bold{
+    font-size: 22px;
+}
+
+.bi-collection-fill,
+.bi-patch-check-fill,
+.bi-shield-check,
+.bi-hourglass-split {
+    font-size: 40px;
+}
+
+.card-body {
+    width: 100%;
+}
+
+/* ////////////// bar graph  //////////// */
+.barChart {
+    width: 100% !important;
+}
+
+/* Responsive Design for Different Screen Sizes */
+/* For screens larger than 1366px */
+@media (min-width: 1367px) {
+    .barChart {
+        height: 500px !important;
+        /* Set a fixed height for large screens */
+    }
+}
+
+/* For standard desktop resolution (1366px wide) and below */
+@media (max-width: 1366px) {
+    .barChart {
+        height: 450px !important;
+        /* Adjust height for standard desktops */
+    }
+}
+
+/* For screens between 992px and 1199px */
+@media (max-width: 1199px) {
+    .barChart {
+        height: 400px !important;
+        /* Slightly smaller height for medium screens */
+    }
+}
+
+/* For tablets and small laptops (768px to 991px) */
+@media (max-width: 991px) {
+    .barChart {
+        height: 350px !important;
+        /* Reduced height for tablets and small laptops */
+    }
+}
+
+/* For mobile devices (767px and below) */
+@media (max-width: 767px) {
+    .barChart {
+        height: 300px !important;
+        /* Compact height for mobile devices */
+    }
+}
+
+/* For extra small devices (576px and below) */
+@media (max-width: 576px) {
+    .barChart {
+        height: 250px !important;
+        /* Minimal height for very small screens */
+    }
+}

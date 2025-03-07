@@ -1,0 +1,12 @@
+.overflow-auto {
+    /* height: 52vh; */
+    overflow-y: scroll;
+    /* border: 1px solid #ccc; */
+    padding: 10px;
+    /* Hide the scrollbar */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+.overflow-auto::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}

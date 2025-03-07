@@ -1,0 +1,179 @@
+/* Set a default for font styling */
+.assin-var-page {
+    font-size: 18px !important;
+    margin: 10px;
+    color: #214561 !important;
+}
+
+/* Style for Bootstrap icons */
+.bi-person-plus-fill {
+    margin-right: 10px !important;
+}
+
+/* Background and container setup */
+.reg-body {
+    position: relative;
+    /* height: 150vh; */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Scrollable container */
+.registration-page {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+    z-index: 1;
+}
+
+/* Container with shadow and background */
+.white {
+    border: 1px solid #214565 !important;
+    border-radius: 20px;
+    background: whitesmoke;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+    padding: 20px;
+    width: 100%;
+    /* Ensure full-width on smaller screens */
+}
+
+label {
+    text-align: start !important;
+    font-size: 14px !important;
+    color: #214565 !important;
+}
+
+/* Button styling */
+#verify-email-btn {
+    margin-left: 8px; /* Adds some spacing between the input and the button */
+    font-size: 0.9rem; /* Adjusts the font size of the button */
+    padding: 0.3rem 0.8rem; /* Adjusts padding for a compact look */
+    display: flex; /* Aligns the button properly in the input group */
+    align-items: center; /* Vertically centers the text inside the button */
+  }
+
+  
+.btn {
+    background-color: #214565 !important;
+    color: white !important;
+    font-size: 12px !important;
+    transition: transform 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #0d6efd !important;
+    transform: translateY(-2px);
+}
+
+.login {
+    margin-right: 10px !important;
+}
+
+/* Form control styling */
+.form-control {
+    font-size: 14px !important;
+    color: #214561 !important;
+}
+
+/* Heading section */
+h4 {
+    border-bottom: 2px solid #214565;
+    padding: 2px 5px;
+    margin: 10px 0 5px;
+    color: #214565;
+}
+
+.login-text {
+    color: #214565;
+    font-size: 14px;
+    margin-bottom: -10px;
+}
+
+.mb-3 {
+    color: #214565;
+}
+
+.bi-check-circle-fill{
+    font-size: 22px;
+    text-align: center;
+    padding: 5px;
+}
+
+.heading{
+    text-align: center;
+    padding: 200px;
+}
+.bi{
+    font-size: 14px;
+    color: #214565;
+}
+.container{
+    margin: 25px;
+}
+
+/* For standard desktop resolution (1366px wide) */
+/* @media (min-width: 1367px) {
+    label{
+        font-size: 14px !important;
+    }
+    .form-control {
+        font-size: 14px !important;
+    }
+  } */
+  
+  /* For standard desktop resolution (1366px wide) */
+  /* @media (max-width: 1366px) {
+    label{
+        font-size: 14px !important;
+    }
+    .form-control {
+        font-size: 14px !important;
+    }
+  } */
+  
+  /* For screens between 992px and 1199px */
+  /* @media (max-width: 1199px) {
+    label{
+        font-size: 11px !important;
+    }
+    .form-control {
+        font-size: 11px !important;
+    }
+  } */
+  
+  /* For tablets and small laptops (768px to 991px) */
+  /* @media (max-width: 991px) {
+    label{
+        font-size: 10px !important;
+    }
+    .form-control {
+        font-size: 10px !important;
+    }
+  } */
+  
+  /* For mobile devices (767px and below) */
+  /* @media (max-width: 767px) {
+    label{
+        font-size: 8px !important;
+    }
+    .form-control {
+        font-size: 8px !important;
+    }
+  } */
+  
+  /* For extra small devices (576px and below) */
+  /* @media (max-width: 576px) {
+    label{
+        font-size: 8px !important;
+    }
+    .form-control {
+        font-size:8px !important;
+    }
+  } */
